@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <title>Доставка и оплата</title>
+    {% include 'blocks/head.njk' %}
+</head>
+
+<body class="preload mp">
+    <div class="main-wrapper-outer">
+        {% include 'blocks/header.njk' %}
+        <main class="main">
+
+            <div class="block-main block-main-other">
+                <div class="container">
+                    <div class="block-main__content">
+                        <div class="heading-complex">
+                            <div class="breadcrumbs">
+                                <ul>
+                                    <li>
+                                        <a href="#" class="home">
+                                            <img src="img/icons/home.svg" alt="">
+                                        </a>
+                                    </li>
+                                    <li><span>Таблица размеров</span></li>
+                                </ul>
+                            </div>
+                            <h1 class="title1">
+                                Как выбрать свой идеальный размер
+                            </h1>
+                            <p>
+                                Комфорт начинается с правильных мерок. Возьмите сантиметровую ленту, наденьте свой самый
+                                удобный базовый бюстгальтер (без пуш-апа) и следуйте нашей простой инструкции
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {% include 'blocks/newsletter.njk' %}
+
+        </main>
+        {% include 'blocks/footer.njk' %}
+    </div>
+    {% include 'blocks/popups.njk' %}
+    {% include 'blocks/scripts.njk' %}
+</body>
+
+</html>

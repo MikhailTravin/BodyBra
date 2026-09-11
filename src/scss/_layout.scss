@@ -7,7 +7,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  //justify-content: center;
+  justify-content: center;
   align-items: stretch;
   overflow: hidden;
   &::before {
@@ -32,21 +32,19 @@
       z-index: 105;
     }
   }
-  .menu-open & {
+  .filter-open & {
     &::before {
       content: "";
       opacity: 1;
       pointer-events: auto;
-      @media (max-width: 768px) {
-        display: none;
-      }
+      z-index: 105;
     }
   }
 }
 
 .main {
-  //flex-grow: 1;
-  //flex-shrink: 1;
+  flex-grow: 1;
+  flex-shrink: 1;
 }
 
 .container {

@@ -17,6 +17,14 @@ body {
   .menu-open & {
     overflow: hidden;
   }
+  .filter-open & {
+    overflow: hidden;
+  }
+  .catalog-open & {
+    @media (max-width: 992px) {
+      overflow: hidden;
+    }
+  }
 }
 
 body.noscroll {
@@ -211,6 +219,12 @@ a {
   display: flex;
   flex-direction: column;
   gap: 21px;
+  .title1 {
+    color: var(--style);
+    @media (max-width: 400px) {
+      font-size: 22px;
+    }
+  }
   .title2 {
     margin-bottom: 0px;
   }
@@ -228,6 +242,7 @@ a {
     span {
       font-weight: 500;
       &.sale-text {
+        white-space: nowrap;
         position: relative;
         font-size: 22px;
         letter-spacing: 0.05em;
@@ -267,5 +282,131 @@ a {
         }
       }
     }
+  }
+}
+
+.pagging {
+  position: relative;
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  // .pagging__item
+
+  &__item {
+    position: relative;
+    z-index: 10;
+    width: 50px;
+    flex: 0 0 50px;
+    height: 50px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 150%;
+    letter-spacing: 0.2em;
+    text-align: center;
+    text-transform: uppercase;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    transition:
+      background-color 0.3s,
+      color 0.3s;
+    span {
+      display: block;
+      margin-left: 0.2em;
+    }
+    @media (any-hover: hover) {
+      &:hover {
+        color: var(--c2a18c);
+      }
+    }
+    @media (max-width: 768px) {
+      width: 30px;
+      flex: 0 0 30px;
+      height: 30px;
+      font-size: 14px;
+    }
+    // .pagging__item_nav
+
+    &_nav {
+      position: relative;
+      z-index: 10;
+      transition: opacity 0.3s;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 125%;
+      background: linear-gradient(
+        105.85deg,
+        #c2a18c -87.05%,
+        #bd9b86 -31.35%,
+        #b4927b 13.34%,
+        #ad8977 67.99%,
+        #684a59 133.56%,
+        #53364b 230.14%
+      );
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      img {
+        width: 5px;
+        height: auto;
+        @media (max-width: 768px) {
+          width: 7px;
+        }
+      }
+      @media (any-hover: hover) {
+        &:hover {
+          opacity: 0.7;
+        }
+      }
+      @media (max-width: 768px) {
+        span {
+          display: none;
+        }
+      }
+    }
+
+    // .pagging__item_nav-prev
+
+    &_nav-prev {
+      img {
+        transform: rotate(-180deg);
+      }
+    }
+
+    // .pagging__item_active
+
+    &_active {
+      pointer-events: none;
+      background-color: var(--style2);
+    }
+
+    // .pagging__item_ellipsis
+
+    &_ellipsis {
+      pointer-events: none;
+    }
+
+    // .pagging__item_nav-next
+
+    &_nav-next {
+    }
+  }
+
+  // .pagging__center
+
+  &__center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
   }
 }

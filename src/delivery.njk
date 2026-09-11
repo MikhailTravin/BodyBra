@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <title>Доставка и оплата</title>
+    {% include 'blocks/head.njk' %}
+</head>
+
+<body class="preload mp">
+    <div class="main-wrapper-outer">
+        {% include 'blocks/header.njk' %}
+        <main class="main">
+
+            <div class="block-main block-main-other">
+                <div class="container">
+                    <div class="block-main__content">
+                        <div class="heading-complex">
+                            <div class="breadcrumbs">
+                                <ul>
+                                    <li>
+                                        <a href="#" class="home">
+                                            <img src="img/icons/home.svg" alt="">
+                                        </a>
+                                    </li>
+                                    <li><span>Доставка и оплата</span></li>
+                                </ul>
+                            </div>
+                            <h1 class="title1">
+                                Доставка и оплата
+                            </h1>
+                            <p>
+                                Мы сделали процесс покупки таким же комфортным, как и наше белье.
+                                <br>
+                                Быстрая доставка и безопасная оплата в один клик
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {% include 'blocks/newsletter.njk' %}
+
+        </main>
+        {% include 'blocks/footer.njk' %}
+    </div>
+    {% include 'blocks/popups.njk' %}
+    {% include 'blocks/scripts.njk' %}
+</body>
+
+</html>

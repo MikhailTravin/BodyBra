@@ -1,564 +1,104 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html>
 
 <head>
-    <title>Главная</title>
-    {% include 'blocks/head.njk' %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
-<body class="preload mp">
-    <div class="main-wrapper-outer">
-        {% include 'blocks/header.njk' %}
-        <main class="main">
-
-            <div class="block-intro">
-                <img src="img/image1.webp" alt="" class="block-intro__bg desc">
-                <img src="img/image1-mob.webp" alt="" class="block-intro__bg mob">
-                <div class="container">
-                    <div class="block-intro__content">
-                        <h1 class="title1">
-                            Естественность<br> в каждой детали
-                        </h1>
-                        <p>
-                            Новая коллекция базового белья
-                        </p>
-                        <a href="./" class="btn">
-                            <span>Смотреть коллекцию</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="block-section">
-                <div class="container">
-                    <h2 class="title2">
-                        Выбор покупателей
-                    </h2>
-                    <div class="block-section__body">
-                        <div class="block-section__slider swiper">
-                            <div class="block-section__wrapper swiper-wrapper">
-                                <div class="block-section__slide swiper-slide">
-                                    <div class="card-product">
-                                        <div class="card-product__image">
-                                            <div class="favorites active">
-                                                <img loading="lazy" src="img/icons/heart-def.svg" alt=""
-                                                    class="favorites__icon1">
-                                                <img loading="lazy" src="img/icons/heart-active.svg" alt=""
-                                                    class="favorites__icon2">
-                                            </div>
-                                            <img loading="lazy" src="img/products/image1.webp" alt=""
-                                                class="card-product__pic1">
-                                            <a href="./" class="btn btn-border-white">
-                                                <span>Подробнее</span>
-                                                <svg aria-hidden="true" width="8" height="14">
-                                                    <use xlink:href="img/sprite.svg#arrow1"></use>
-                                                </svg>
-                                            </a>
-                                        </div>
-                                        <div class="card-product__item">
-                                            <div class="card-product__top">
-                                                <div data-text="Бюстгальтер без косточек с пушапом"
-                                                    class="card-product__title">
-                                                    Бюстгальтер без косточек с пушапом
-                                                </div>
-                                                <div class="card-product__prices">
-                                                    <div class="card-product__new-price">
-                                                        2 477 ₽
-                                                    </div>
-                                                    <div class="card-product__old-price">
-                                                        3 900 ₽
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="options-color">
-                                                <label class="options-color__item">
-                                                    <input hidden class="options-color__input" type="radio" value="1"
-                                                        name="option-color1">
-                                                    <span class="options-color__label">
-                                                        <span
-                                                            style="background: linear-gradient(100.04deg, #c2a18c -84.76%, #bd9b86 -26.91%, #b4927b 19.51%, #ad8977 76.28%, #684a59 144.38%, #53364b 244.7%);"
-                                                            class="options-color__circle"></span></span>
-                                                </label>
-                                                <label class="options-color__item">
-                                                    <input hidden class="options-color__input" type="radio" value="2"
-                                                        name="option-color1">
-                                                    <span class="options-color__label">
-                                                        <span style="background: #eee2d3;"
-                                                            class="options-color__circle"></span></span>
-                                                </label>
-                                                <label class="options-color__item">
-                                                    <input hidden checked class="options-color__input" type="radio"
-                                                        value="3" name="option-color1">
-                                                    <span class="options-color__label">
-                                                        <span style="background: #ffffff;"
-                                                            class="options-color__circle"></span></span>
-                                                </label>
-                                                <label class="options-color__item">
-                                                    <input hidden class="options-color__input" type="radio" value="4"
-                                                        name="option-color1">
-                                                    <span class="options-color__label">
-                                                        <span style="background: #5a3e50;"
-                                                            class="options-color__circle"></span></span>
-                                                </label>
-                                            </div>
-                                            <a href="./" class="btn btn-border-gold">
-                                                <span>Подробнее</span>
-                                                <img loading="lazy" src="img/icons/arrow1-gradient.svg" alt="">
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="block-section__slide swiper-slide">
-                                    <div class="card-product">
-                                        <div class="card-product__image">
-                                            <div class="favorites">
-                                                <img loading="lazy" src="img/icons/heart-def.svg" alt=""
-                                                    class="favorites__icon1">
-                                                <img loading="lazy" src="img/icons/heart-active.svg" alt=""
-                                                    class="favorites__icon2">
-                                            </div>
-                                            <img loading="lazy" src="img/products/image2.webp" alt=""
-                                                class="card-product__pic1">
-                                            <a href="./" class="btn btn-border-white">
-                                                <span>Подробнее</span>
-                                                <svg aria-hidden="true" width="8" height="14">
-                                                    <use xlink:href="img/sprite.svg#arrow1"></use>
-                                                </svg>
-                                            </a>
-                                        </div>
-                                        <div class="card-product__item">
-                                            <div class="card-product__top">
-                                                <div data-text="Бюстгальтер без косточек бесшовный гладкий"
-                                                    class="card-product__title">
-                                                    Бюстгальтер без косточек бесшовный гладкий
-                                                </div>
-                                                <div class="card-product__prices">
-                                                    <div class="card-product__new-price">
-                                                        2 490 ₽
-                                                    </div>
-                                                    <div class="card-product__old-price">
-                                                        4 500 ₽
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="options-color">
-                                                <label class="options-color__item">
-                                                    <input hidden class="options-color__input" type="radio" value="1"
-                                                        name="option-color2">
-                                                    <span class="options-color__label">
-                                                        <span
-                                                            style="background: linear-gradient(100.04deg, #c2a18c -84.76%, #bd9b86 -26.91%, #b4927b 19.51%, #ad8977 76.28%, #684a59 144.38%, #53364b 244.7%);"
-                                                            class="options-color__circle"></span></span>
-                                                </label>
-                                                <label class="options-color__item">
-                                                    <input hidden class="options-color__input" type="radio" value="2"
-                                                        name="option-color2">
-                                                    <span class="options-color__label">
-                                                        <span style="background: #eee2d3;"
-                                                            class="options-color__circle"></span></span>
-                                                </label>
-                                                <label class="options-color__item">
-                                                    <input hidden checked class="options-color__input" type="radio"
-                                                        value="3" name="option-color2">
-                                                    <span class="options-color__label">
-                                                        <span style="background: #ffffff;"
-                                                            class="options-color__circle"></span></span>
-                                                </label>
-                                                <label class="options-color__item">
-                                                    <input hidden class="options-color__input" type="radio" value="4"
-                                                        name="option-color2">
-                                                    <span class="options-color__label">
-                                                        <span style="background: #5a3e50;"
-                                                            class="options-color__circle"></span></span>
-                                                </label>
-                                            </div>
-                                            <a href="./" class="btn btn-border-gold">
-                                                <span>Подробнее</span>
-                                                <img loading="lazy" src="img/icons/arrow1-gradient.svg" alt="">
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="block-section__slide swiper-slide">
-                                    <div class="card-product">
-                                        <div class="card-product__image">
-                                            <div class="favorites">
-                                                <img loading="lazy" src="img/icons/heart-def.svg" alt=""
-                                                    class="favorites__icon1">
-                                                <img loading="lazy" src="img/icons/heart-active.svg" alt=""
-                                                    class="favorites__icon2">
-                                            </div>
-                                            <img loading="lazy" src="img/products/image3.webp" alt=""
-                                                class="card-product__pic1">
-                                            <a href="./" class="btn btn-border-white">
-                                                <span>Подробнее</span>
-                                                <svg aria-hidden="true" width="8" height="14">
-                                                    <use xlink:href="img/sprite.svg#arrow1"></use>
-                                                </svg>
-                                            </a>
-                                        </div>
-                                        <div class="card-product__item">
-                                            <div class="card-product__top">
-                                                <div data-text="Бюстгальтер бесшовный гладкий с чашками"
-                                                    class="card-product__title">
-                                                    Бюстгальтер бесшовный гладкий с чашками
-                                                </div>
-                                                <div class="card-product__prices">
-                                                    <div class="card-product__new-price">
-                                                        1 631 ₽
-                                                    </div>
-                                                    <div class="card-product__old-price">
-                                                        3 900 ₽
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="options-color">
-                                                <label class="options-color__item">
-                                                    <input hidden class="options-color__input" type="radio" value="1"
-                                                        name="option-color3">
-                                                    <span class="options-color__label">
-                                                        <span
-                                                            style="background: linear-gradient(100.04deg, #c2a18c -84.76%, #bd9b86 -26.91%, #b4927b 19.51%, #ad8977 76.28%, #684a59 144.38%, #53364b 244.7%);"
-                                                            class="options-color__circle"></span></span>
-                                                </label>
-                                                <label class="options-color__item">
-                                                    <input hidden class="options-color__input" type="radio" value="2"
-                                                        name="option-color3">
-                                                    <span class="options-color__label">
-                                                        <span style="background: #eee2d3;"
-                                                            class="options-color__circle"></span></span>
-                                                </label>
-                                                <label class="options-color__item">
-                                                    <input hidden checked class="options-color__input" type="radio"
-                                                        value="3" name="option-color3">
-                                                    <span class="options-color__label">
-                                                        <span style="background: #ffffff;"
-                                                            class="options-color__circle"></span></span>
-                                                </label>
-                                                <label class="options-color__item">
-                                                    <input hidden class="options-color__input" type="radio" value="4"
-                                                        name="option-color3">
-                                                    <span class="options-color__label">
-                                                        <span style="background: #5a3e50;"
-                                                            class="options-color__circle"></span></span>
-                                                </label>
-                                            </div>
-                                            <a href="./" class="btn btn-border-gold">
-                                                <span>Подробнее</span>
-                                                <img loading="lazy" src="img/icons/arrow1-gradient.svg" alt="">
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="block-section__slide swiper-slide">
-                                    <div class="card-product">
-                                        <div class="card-product__image">
-                                            <div class="favorites">
-                                                <img loading="lazy" src="img/icons/heart-def.svg" alt=""
-                                                    class="favorites__icon1">
-                                                <img loading="lazy" src="img/icons/heart-active.svg" alt=""
-                                                    class="favorites__icon2">
-                                            </div>
-                                            <img loading="lazy" src="img/products/image4.webp" alt=""
-                                                class="card-product__pic1">
-                                            <a href="./" class="btn btn-border-white">
-                                                <span>Подробнее</span>
-                                                <svg aria-hidden="true" width="8" height="14">
-                                                    <use xlink:href="img/sprite.svg#arrow1"></use>
-                                                </svg>
-                                            </a>
-                                        </div>
-                                        <div class="card-product__item">
-                                            <div class="card-product__top">
-                                                <div data-text="Бюстгальтер топ бесшовный без косточек гладкий"
-                                                    class="card-product__title">
-                                                    Бюстгальтер топ бесшовный без косточек гладкий
-                                                </div>
-                                                <div class="card-product__prices">
-                                                    <div class="card-product__new-price">
-                                                        1 631 ₽
-                                                    </div>
-                                                    <div class="card-product__old-price">
-                                                        3 900 ₽
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="options-color">
-                                                <label class="options-color__item">
-                                                    <input hidden class="options-color__input" type="radio" value="1"
-                                                        name="option-color4">
-                                                    <span class="options-color__label">
-                                                        <span
-                                                            style="background: linear-gradient(100.04deg, #c2a18c -84.76%, #bd9b86 -26.91%, #b4927b 19.51%, #ad8977 76.28%, #684a59 144.38%, #53364b 244.7%);"
-                                                            class="options-color__circle"></span></span>
-                                                </label>
-                                                <label class="options-color__item">
-                                                    <input hidden class="options-color__input" type="radio" value="2"
-                                                        name="option-color4">
-                                                    <span class="options-color__label">
-                                                        <span style="background: #eee2d3;"
-                                                            class="options-color__circle"></span></span>
-                                                </label>
-                                                <label class="options-color__item">
-                                                    <input hidden checked class="options-color__input" type="radio"
-                                                        value="3" name="option-color4">
-                                                    <span class="options-color__label">
-                                                        <span style="background: #ffffff;"
-                                                            class="options-color__circle"></span></span>
-                                                </label>
-                                                <label class="options-color__item">
-                                                    <input hidden class="options-color__input" type="radio" value="4"
-                                                        name="option-color4">
-                                                    <span class="options-color__label">
-                                                        <span style="background: #5a3e50;"
-                                                            class="options-color__circle"></span></span>
-                                                </label>
-                                            </div>
-                                            <a href="./" class="btn btn-border-gold">
-                                                <span>Подробнее</span>
-                                                <img loading="lazy" src="img/icons/arrow1-gradient.svg" alt="">
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="block-section__slide swiper-slide">
-                                    <div class="card-product">
-                                        <div class="card-product__image">
-                                            <div class="favorites">
-                                                <img loading="lazy" src="img/icons/heart-def.svg" alt=""
-                                                    class="favorites__icon1">
-                                                <img loading="lazy" src="img/icons/heart-active.svg" alt=""
-                                                    class="favorites__icon2">
-                                            </div>
-                                            <img loading="lazy" src="img/products/image1.webp" alt=""
-                                                class="card-product__pic1">
-                                            <a href="./" class="btn btn-border-white">
-                                                <span>Подробнее</span>
-                                                <svg aria-hidden="true" width="8" height="14">
-                                                    <use xlink:href="img/sprite.svg#arrow1"></use>
-                                                </svg>
-                                            </a>
-                                        </div>
-                                        <div class="card-product__item">
-                                            <div class="card-product__top">
-                                                <div data-text="Бюстгальтер без косточек с пушапом"
-                                                    class="card-product__title">
-                                                    Бюстгальтер без косточек с пушапом
-                                                </div>
-                                                <div class="card-product__prices">
-                                                    <div class="card-product__new-price">
-                                                        2 477 ₽
-                                                    </div>
-                                                    <div class="card-product__old-price">
-                                                        3 900 ₽
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="options-color">
-                                                <label class="options-color__item">
-                                                    <input hidden class="options-color__input" type="radio" value="1"
-                                                        name="option-color1">
-                                                    <span class="options-color__label">
-                                                        <span
-                                                            style="background: linear-gradient(100.04deg, #c2a18c -84.76%, #bd9b86 -26.91%, #b4927b 19.51%, #ad8977 76.28%, #684a59 144.38%, #53364b 244.7%);"
-                                                            class="options-color__circle"></span></span>
-                                                </label>
-                                                <label class="options-color__item">
-                                                    <input hidden class="options-color__input" type="radio" value="2"
-                                                        name="option-color1">
-                                                    <span class="options-color__label">
-                                                        <span style="background: #eee2d3;"
-                                                            class="options-color__circle"></span></span>
-                                                </label>
-                                                <label class="options-color__item">
-                                                    <input hidden checked class="options-color__input" type="radio"
-                                                        value="3" name="option-color1">
-                                                    <span class="options-color__label">
-                                                        <span style="background: #ffffff;"
-                                                            class="options-color__circle"></span></span>
-                                                </label>
-                                                <label class="options-color__item">
-                                                    <input hidden class="options-color__input" type="radio" value="4"
-                                                        name="option-color1">
-                                                    <span class="options-color__label">
-                                                        <span style="background: #5a3e50;"
-                                                            class="options-color__circle"></span></span>
-                                                </label>
-                                            </div>
-                                            <a href="./" class="btn btn-border-gold">
-                                                <span>Подробнее</span>
-                                                <img loading="lazy" src="img/icons/arrow1-gradient.svg" alt="">
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <button type="button" class="section-arrow-prev slider-nav arrow-prev">
-                            <svg aria-hidden="true" width="10" height="19">
-                                <use xlink:href="img/sprite.svg#arrow1"></use>
-                            </svg>
-                        </button>
-                        <button type="button" class="section-arrow-next slider-nav arrow-next">
-                            <svg aria-hidden="true" width="10" height="19">
-                                <use xlink:href="img/sprite.svg#arrow1"></use>
-                            </svg>
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="block-categories">
-                <div class="container">
-                    <h2 class="title2">
-                        Категории
-                    </h2>
-                    <div class="block-categories__body">
-                        <a href="./" class="block-categories__column">
-                            <img loading="lazy" src="img/products/image5.webp" alt="">
-                            <div href="./" class="btn btn-border-white">
-                                <span>Бюстгалтера</span>
-                                <svg aria-hidden="true" width="8" height="14">
-                                    <use xlink:href="img/sprite.svg#arrow1"></use>
-                                </svg>
-                            </div>
-                        </a>
-                        <a href="./" class="block-categories__column">
-                            <img loading="lazy" src="img/products/image6.webp" alt="">
-                            <div href="./" class="btn btn-border-white">
-                                <span>Трусы</span>
-                                <svg aria-hidden="true" width="8" height="14">
-                                    <use xlink:href="img/sprite.svg#arrow1"></use>
-                                </svg>
-                            </div>
-                        </a>
-                        <a href="./" class="block-categories__column">
-                            <img loading="lazy" src="img/products/image7.webp" alt="">
-                            <div href="./" class="btn btn-border-white">
-                                <span>Комплекты</span>
-                                <svg aria-hidden="true" width="8" height="14">
-                                    <use xlink:href="img/sprite.svg#arrow1"></use>
-                                </svg>
-                            </div>
-                        </a>
-                        <a href="./" class="block-categories__column">
-                            <img loading="lazy" src="img/products/image8.webp" alt="">
-                            <div href="./" class="btn btn-border-white">
-                                <span>Одежда для сна</span>
-                                <svg aria-hidden="true" width="8" height="14">
-                                    <use xlink:href="img/sprite.svg#arrow1"></use>
-                                </svg>
-                            </div>
-                        </a>
-                        <a href="./" class="block-categories__column">
-                            <img loading="lazy" src="img/products/image9.webp" alt="">
-                            <div href="./" class="btn btn-border-white">
-                                <span>Скидки недели</span>
-                                <svg aria-hidden="true" width="8" height="14">
-                                    <use xlink:href="img/sprite.svg#arrow1"></use>
-                                </svg>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="block-gift-certificates">
-                <div class="container">
-                    <div class="block-gift-certificates__content">
-                        <div class="block-gift-certificates__titles">
-                            <h2 class="title2">
-                                Подарочные сертификаты
-                            </h2>
-                            <p>
-                                Подарочный сертификат нашего магазина — решение, которое всегда уместно. <span>Он дарит
-                                    свободу:</span> ваша получательница сама выберет идеальный комплект из нашей
-                                коллекции — от
-                                нежного кружева до комфортного хлопка
-                            </p>
-                        </div>
-                        <a href="./" class="btn">
-                            <span>Купить подарочный сертификат</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="block-benefits">
-                <div class="container">
-                    <h2 class="title2">
-                        наши преимущества
-                    </h2>
-                    <div class="block-benefits__body">
-                        <div class="block-benefits__column">
-                            <div class="block-benefits__image">
-                                <div class="block-benefits__check">
-                                    <img loading="lazy" src="img/icons/check.svg" alt="">
-                                </div>
-                                <div class="block-benefits__icon">
-                                    <img style="width: 50px;" loading="lazy" src="img/icons/sale.svg" alt="">
-                                </div>
-                            </div>
-                            <div class="block-benefits__text">
-                                Накопительная скидка до <span class="sale-text">15%</span> <span>для постоянных
-                                    покупателей</span>
-                            </div>
-                        </div>
-                        <div class="block-benefits__column">
-                            <div class="block-benefits__image">
-                                <div class="block-benefits__check">
-                                    <img loading="lazy" src="img/icons/check.svg" alt="">
-                                </div>
-                                <div class="block-benefits__icon">
-                                    <img loading="lazy" src="img/icons/delivery.svg" alt="">
-                                </div>
-                            </div>
-                            <div class="block-benefits__text">
-                                Быстрая и удобная доставка в пункт выдачи <span>Ozon</span>
-                            </div>
-                        </div>
-                        <div class="block-benefits__column">
-                            <div class="block-benefits__image">
-                                <div class="block-benefits__check">
-                                    <img loading="lazy" src="img/icons/check.svg" alt="">
-                                </div>
-                                <div class="block-benefits__icon">
-                                    <img loading="lazy" src="img/icons/user2.svg" alt="">
-                                </div>
-                            </div>
-                            <div class="block-benefits__text">
-                                Вход и оплата в один клик с помощью <span>Яндекс ID</span> и <span>Yandex Pay</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="block-club">
-                <div class="container">
-                    <div class="block-club__content">
-                        <svg aria-hidden="true" width="8" height="81">
-                            <use xlink:href="img/sprite.svg#arrow2"></use>
-                        </svg>
-                        <h2 class="title2">
-                            вступай в клуб заботы о себе <br> <span>и получи скидку</span>
-                        </h2>
-                        <p>
-                            Для этого нужно подписаться на любую и соцсетей, <span>Телеграм, ВК или Инстаграм,</span>
-                            везде в шапке
-                            будет размещен промокод на первый заказ
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            {% include 'blocks/newsletter.njk' %}
-
-        </main>
-        {% include 'blocks/footer.njk' %}
+<body>
+    <div class="rootpage">
+        <ol class="rootpage__list">
+            <li><a target="_blank" href="home.html">Главная</a></li>
+            <li><a target="_blank" href="catalog.html">Каталог</a></li>
+            <li><a target="_blank" href="product-card.html">Карточка товара</a></li>
+            <li><a target="_blank" href="new.html">Новинки</a></li>
+            <li><a target="_blank" href="sale.html">Скидка</a></li>
+            <li><a target="_blank" href="delivery.html">Доставка и оплата</a></li>
+            <li><a target="_blank" href="size-chart.html">Таблица размеров</a></li>
+            <li><a target="_blank" href="return.html">Обмен и возврат</a></li>
+            <li><a target="_blank" href="contacts.html">Контакты</a></li>
+        </ol>
     </div>
-    {% include 'blocks/popups.njk' %}
-    {% include 'blocks/scripts.njk' %}
 </body>
+<style>
+    @charset "UTF-8";
+
+    *,
+    *::before,
+    *::after {
+        padding: 0px;
+        margin: 0px;
+        border: 0px;
+        box-sizing: border-box;
+    }
+
+    html,
+    body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        min-width: 320px;
+        width: 100%;
+        color: #2b2e33;
+        background-color: #fff;
+    }
+
+    body {
+        font-family: "Inter", sans-serif;
+        font-size: 100%;
+        line-height: 1;
+        font-size: 1rem;
+    }
+
+    a {
+        text-decoration: underline;
+        color: #2b2e33;
+    }
+
+    a:visited {
+        text-decoration: underline;
+        color: #2b2e33;
+    }
+
+    a:hover {
+        text-decoration: none;
+    }
+
+    ul li {
+        list-style: none;
+    }
+
+    img {
+        vertical-align: top;
+    }
+
+    .wrapper {
+        width: 100%;
+        min-height: 100%;
+        overflow: hidden;
+    }
+
+    .rootpage {
+        padding: 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    @media (max-width: 767px) {
+        .rootpage {
+            padding: 30px 15px;
+        }
+    }
+
+    .rootpage__list {
+        margin: 0px 0px 2.25rem 1.25rem;
+    }
+
+    .rootpage__list li:not(:last-child) {
+        margin: 0px 0px 15px 0px;
+    }
+</style>
 
 </html>

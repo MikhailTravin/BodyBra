@@ -2,7 +2,7 @@
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
-    
+
     // .options-color__item
 
     &__item {
@@ -15,11 +15,17 @@
         width: 0;
         height: 0;
         opacity: 0;
-        &:checked + .options-color__label {
+        &:checked + .options-color__label .options-color__icon {
             margin-right: 8px;
             margin-left: 8px;
         }
-        &:checked + .options-color__label:before {
+        &:checked + .options-color__label .options-color__icon:before {
+            opacity: 1;
+        }
+        &:checked + .options-color__label .options-color__icon .options-color__circle {
+            border: 1px solid transparent !important;
+        }
+        &:checked + .options__label .options-color__text::after {
             opacity: 1;
         }
     }
@@ -29,7 +35,15 @@
     &__label {
         position: relative;
         display: flex;
+        gap: 15px;
         cursor: pointer;
+    }
+
+    // .options-color__icon
+
+    &__icon {
+        display: flex;
+        position: relative;
         margin-right: 0px;
         margin-left: 0px;
         margin-top: 8px;
@@ -60,64 +74,126 @@
         height: 24px;
         border-radius: 50%;
     }
+
+    // .options-color__text
+
+    &__text {
+        position: relative;
+        display: flex;
+        align-items: center;
+        font-family: var(--second-family);
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 125%;
+        @media (max-width: 768px) {
+            font-size: 14px;
+            line-height: 129%;
+        }
+        &::after {
+            content: attr(data-text);
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            background: linear-gradient(
+                105.85deg,
+                #c2a18c -19.13%,
+                #bd9b86 3.89%,
+                #b4927b 22.36%,
+                #ad8977 44.95%,
+                #684a59 72.05%,
+                #53364b 111.96%
+            );
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: transparent;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+    }
 }
 
-/*Радиокнопка
-.options {
-    // .options__item
+.checkbox {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    // .checkbox__item
 
     &__item {
     }
 
-    // .options__input
+    // .checkbox__input
 
     &__input {
         position: absolute;
         width: 0;
         height: 0;
         opacity: 0;
-        &:checked + .options__label .options__icon {
-            border: 6px solid var(--02642b);
+        &:checked + .checkbox__label .checkbox__icon {
+            border: 7px solid var(--c2a18c);
+        }
+        &:checked + .checkbox__label .checkbox__text::after {
+            opacity: 1;
         }
     }
 
-    // .options__label
+    // .checkbox__label
 
     &__label {
         cursor: pointer;
         display: flex;
         align-items: start;
-        gap: 12px;
-        border-radius: 10px;
-        background: var(--ffffff);
-        box-shadow: 0 5px 15px 0 rgba(14, 29, 14, 0.12);
-        padding: 15px 20px;
+        gap: 15px;
     }
 
-    // .options__icon
+    // .checkbox__icon
 
     &__icon {
         width: 20px;
         height: 20px;
         flex: 0 0 20px;
-        border-radius: 50%;
-        background: #ecedec;
-        border: 6px solid transparent;
+        background: var(--f8f1ed);
+        border: 7px solid transparent;
         transition: border 0.3s;
     }
 
-    // .options__text
+    // .checkbox__text
 
     &__text {
+        position: relative;
         display: flex;
         align-items: center;
-        font-weight: 700;
-        font-size: 14px;
-        line-height: 143%;
-        color: rgba(14, 29, 14, 0.8);
+        font-family: var(--second-family);
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 125%;
+        @media (max-width: 768px) {
+            font-size: 14px;
+            line-height: 129%;
+        }
+        &::after {
+            content: attr(data-text);
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            background: linear-gradient(
+                105.85deg,
+                #c2a18c -19.13%,
+                #bd9b86 3.89%,
+                #b4927b 22.36%,
+                #ad8977 44.95%,
+                #684a59 72.05%,
+                #53364b 111.96%
+            );
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: transparent;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
     }
 }
-*/
 
 /* Чекбокс
 .checkbox {
