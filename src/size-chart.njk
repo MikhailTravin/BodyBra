@@ -2,7 +2,7 @@
 <html lang="ru">
 
 <head>
-    <title>Доставка и оплата</title>
+    <title>Таблица размеров</title>
     {% include 'blocks/head.njk' %}
 </head>
 
@@ -37,7 +37,85 @@
                 </div>
             </div>
 
-            {% include 'blocks/newsletter.njk' %}
+            <div class="block-size">
+                <div class="container">
+                    <div class="block-size__content">
+                        <img src="img/image3.webp" alt="" class="block-size__pic1">
+                        <div class="block-size__body">
+                            <div class="block-size__column column1">
+                                <div class="block-size__item">
+                                    <div class="block-size__title">
+                                        Обхват груди
+                                    </div>
+                                    <p>
+                                        Измеряется по самым выступающим точкам груди. Лента должна прилегать плотно, но
+                                        не сдавливать
+                                    </p>
+                                </div>
+                                <div class="block-size__number">1</div>
+                            </div>
+                            <div class="block-size__column column2">
+                                <div class="block-size__item">
+                                    <div class="block-size__title">
+                                        Обхват под грудью
+                                    </div>
+                                    <p>
+                                        Измеряется строго под основанием груди. Сделайте спокойный выдох и плотно
+                                        прижмите ленту к телу
+                                    </p>
+                                </div>
+                                <div class="block-size__number">2</div>
+                            </div>
+                            <div class="block-size__column column3">
+                                <div class="block-size__item">
+                                    <div class="block-size__title">
+                                        Обхват талии
+                                    </div>
+                                    <p>
+                                        Измеряется по самой узкой части туловища
+                                    </p>
+                                </div>
+                                <div class="block-size__number">3</div>
+                            </div>
+                            <div class="block-size__column column4">
+                                <div class="block-size__item">
+                                    <div class="block-size__title">
+                                        Обхват бедер
+                                    </div>
+                                    <p>
+                                        Измеряется по самым выступающим точкам ягодиц, ноги при этом держите вместе
+                                    </p>
+                                </div>
+                                <div class="block-size__number">4</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="block-help">
+                <div class="container">
+                    <div class="block-help__content">
+                        <div class="heading-complex">
+                            <h2 class="title2">
+                                Сомневаетесь в выборе?
+                            </h2>
+                            <p>
+                                Каждая фигура уникальна. Напишите нашим консультантам ваши параметры, и мы с радостью
+                                поможем подобрать идеальный размер и модель именно для вас
+                            </p>
+                        </div>
+                        <div class="block-help__buttons">
+                            <a href="./" class="btn">
+                                <span>Написать в Telegram</span>
+                            </a>
+                            <a href="./" class="btn btn-border-gold">
+                                <span>Написать в MAX</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
         </main>
         {% include 'blocks/footer.njk' %}
