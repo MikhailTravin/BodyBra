@@ -290,3 +290,108 @@
         }
     }
 }
+
+.card-steps {
+    border: 1px solid rgba(194, 161, 140, 0.3);
+    position: relative;
+    padding: 70px 80px 70px 80px;
+    @media (max-width: 1500px) {
+        padding: 70px 30px 26px 30px;
+    }
+    @media (max-width: 768px) {
+        padding: 60px 20px 20px 20px;
+    }
+    // .card-steps__badge
+
+    &__badge {
+        position: absolute;
+        top: 12px;
+        left: -5px;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 150%;
+        text-align: center;
+        color: var(--ffffff);
+        z-index: 4;
+        background: var(--c2a18c);
+        padding: 6px 13px 4px 13px;
+        width: fit-content;
+        @media (max-width: 768px) {
+            font-size: 16px;
+            top: 8px;
+        }
+    }
+
+    // .card-steps__item
+
+    &__item {
+        display: flex;
+        flex-direction: column;
+        gap: 49px;
+        @media (max-width: 1500px) {
+            gap: 24px;
+        }
+    }
+
+    // .card-steps__icon
+
+    &__icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 90px;
+        height: 90px;
+        @media (max-width: 768px) {
+            width: 70px;
+            height: 70px;
+        }
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    // .card-steps__titles
+
+    &__titles {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        @media (max-width: 768px) {
+            gap: 5px;
+        }
+        p {
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 163%;
+            background: linear-gradient(
+                105.85deg,
+                #c2a18c -79.73%,
+                #bd9b86 -27.55%,
+                #b4927b 14.31%,
+                #ad8977 65.51%,
+                #684a59 126.93%,
+                #53364b 217.41%
+            );
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            @media (max-width: 768px) {
+                font-size: 14px;
+            }
+        }
+    }
+
+    // .card-steps__title
+
+    &__title {
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 150%;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        @media (max-width: 768px) {
+            font-size: 16px;
+        }
+    }
+}
