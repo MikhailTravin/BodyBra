@@ -11,7 +11,7 @@
         {% include 'blocks/header.njk' %}
         <main class="main">
 
-            <div class="block-main block-main-other">
+            <div class="block-main">
                 <div class="container">
                     <div class="block-main__content">
                         <div class="heading-complex">
@@ -22,22 +22,126 @@
                                             <img src="img/icons/home.svg" alt="">
                                         </a>
                                     </li>
-                                    <li><span>Спасибо за заказ</span></li>
+                                    <li><span>Спасибо за ваш заказ!</span></li>
                                 </ul>
                             </div>
-                            <img src="img/icons/tick.svg" alt="" class="heading-complex__tick">
-                            <h1 class="title1">
-                                Спасибо за заказ
-                            </h1>
-                            <p>
-                                Мы уже начали собирать его для вас. Надеемся, что наши изделия подарят вам абсолютный
-                                комфорт
-                            </p>
+                            <div class="block-check">
+                                <div class="block-check__icon">
+                                    <img src="img/icons/tick.svg" alt="">
+                                </div>
+                                <h1 class="title1">Спасибо за ваш заказ!</h1>
+                                <p>
+                                    Мы уже начали собирать его для вас. Надеемся, что наши изделия<br> подарят вам
+                                    абсолютный комфорт
+                                </p>
+                            </div>
+                            <div class="card-buy">
+                                <div class="card-buy__top status-paid">
+                                    <div class="card-buy__name">
+                                        Заказ № 12345
+                                    </div>
+                                    <div class="card-buy__status">
+                                        Оплачен успешно
+                                    </div>
+                                </div>
+                                <div class="card-buy__text">
+                                    Электронный чек и подтверждение заказа уже отправлены на вашу электронную почту
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
+            <div class="block-order-steps">
+                <div class="container">
+                    <h2 class="title2">
+                        Что будет дальше?
+                    </h2>
+                    <div class="block-order-steps__content">
+                        <div class="block-order-steps__body">
+                            <div class="card-steps">
+                                <div class="card-steps__badge">
+                                    Шаг 1
+                                </div>
+                                <div class="card-steps__item">
+                                    <div class="card-steps__icon">
+                                        <img loading="lazy" src="img/icons/send.svg" alt="">
+                                    </div>
+                                    <div class="card-steps__titles">
+                                        <p>
+                                            В течение 1–2 рабочих дней мы аккуратно упакуем ваш заказ на нашем складе
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-steps">
+                                <div class="card-steps__badge">
+                                    Шаг 2
+                                </div>
+                                <div class="card-steps__item">
+                                    <div class="card-steps__icon">
+                                        <img loading="lazy" src="img/icons/delivery2.svg" alt="">
+                                    </div>
+                                    <div class="card-steps__titles">
+                                        <p>
+                                            Передадим посылку в службу доставки Озон. Мы пришлем вам трек-номер на почту
+                                            и
+                                            также можете отслеживать в своем приложении Озон
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-steps">
+                                <div class="card-steps__badge">
+                                    Шаг 3
+                                </div>
+                                <div class="card-steps__item">
+                                    <div class="card-steps__icon">
+                                        <img loading="lazy" src="img/icons/notification-alarm.svg" alt="">
+                                    </div>
+                                    <div class="card-steps__titles">
+                                        <p>
+                                            Как только заказ прибудет в выбранный пункт выдачи, вы получите уведомление
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="block-order-steps__status">
+                            <ul>
+                                <li>
+                                    <div class="block-order-steps__name">
+                                        Товары (3 шт.):
+                                    </div>
+                                    <div class="block-order-steps__line"></div>
+                                    <div class="block-order-steps__value">
+                                        ПВЗ Ozon, г. Москва, ул. Ленина, д. 45
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="block-order-steps__name">
+                                        Ваша скидка (15%):
+                                    </div>
+                                    <div class="block-order-steps__line"></div>
+                                    <div class="block-order-steps__value">
+                                        Сумма этого заказа будет учтена в вашей программе лояльности через 14 дней после
+                                        получения посылки
+                                    </div>
+                                </li>
+                            </ul>
+                            <div class="block-order-steps__buttons">
+                                <a href="./" class="btn">
+                                    <span>Отслеживать статус заказа</span>
+                                </a>
+                                <a href="./" class="btn btn-border-brown">
+                                    <span>Смотреть новинки</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
         </main>
         {% include 'blocks/footer.njk' %}

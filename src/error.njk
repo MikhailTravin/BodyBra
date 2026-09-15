@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <title>404</title>
+    {% include 'blocks/head.njk' %}
+</head>
+
+<body class="preload mp">
+    <div class="main-wrapper-outer">
+        {% include 'blocks/header.njk' %}
+        <main class="main">
+
+            <div class="block-main">
+                <div class="container">
+                    <div class="block-main__content">
+                        <div class="heading-complex">
+                            <div class="breadcrumbs">
+                                <ul>
+                                    <li>
+                                        <a href="#" class="home">
+                                            <img src="img/icons/home.svg" alt="">
+                                        </a>
+                                    </li>
+                                    <li><span>404</span></li>
+                                </ul>
+                            </div>
+                            <img src="img/error.webp" alt="" class="heading-complex__error">
+                            <h1 class="title1">
+                                Кажется, мы не можем найти эту страницу
+                            </h1>
+                            <p>
+                                Возможно, вы перешли по устаревшей ссылке, опечатались в адресе, или товар, который вы
+                                искали, уже полностью раскупили
+                            </p>
+                        </div>
+                        <div class="block-search block-search-error">
+                            <div class="block-search__input">
+                                <img src="img/icons/search.svg" alt="">
+                                <input autocomplete="off" type="text" name="form[]" placeholder="Поиск по каталогу">
+                                <button type="button" class="block-search__delete active">
+                                    <svg aria-hidden="true" width="10" height="10">
+                                        <use xlink:href="img/sprite.svg#close"></use>
+                                    </svg>
+                                </button>
+                            </div>
+                            <button type="button" class="btn">
+                                <span>Найти</span>
+                            </button>
+                        </div>
+                        <div class="block-main__buttons">
+                            <a href="./" class="btn">
+                                <span>Перейти на Главную</span>
+                            </a>
+                            <a href="./" class="btn btn-border-brown">
+                                <span>Смотреть Новинки</span>
+                            </a>
+                            <a href="./" class="btn btn-white">
+                                <span>Открыть Каталог</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="background: #ffffff;" class="block-section">
+                <div class="container">
+                    <h2 class="title2">
+                        Но мы точно знаем, где найти идеальный<br> комфорт. Посмотрите наши хиты продаж
+                    </h2>
+                    <div class="block-section__body">
+                        <div class="block-section__slider swiper">
+                            <div class="block-section__wrapper swiper-wrapper">
+                                <div class="block-section__slide swiper-slide">
+                                    <div class="card-product">
+                                        <div class="card-product__image">
+                                            <div class="favorites active">
+                                                <img loading="lazy" src="img/icons/heart-def.svg" alt=""
+                                                    class="favorites__icon1">
+                                                <img loading="lazy" src="img/icons/heart-active.svg" alt=""
+                                                    class="favorites__icon2">
+                                            </div>
+                                            <img loading="lazy" src="img/products/image1.webp" alt=""
+                                                class="card-product__pic1">
+                                            <a href="./" class="btn btn-border-white">
+                                                <span>Подробнее</span>
+                                                <svg aria-hidden="true" width="8" height="14">
+                                                    <use xlink:href="img/sprite.svg#arrow1"></use>
+                                                </svg>
+                                            </a>
+                                        </div>
+                                        <div class="card-product__item">
+                                            <div class="card-product__top">
+                                                <div data-text="Бюстгальтер без косточек с пушапом"
+                                                    class="card-product__title">
+                                                    Бюстгальтер без косточек с пушапом
+                                                </div>
+                                                <div class="card-product__prices">
+                                                    <div class="card-product__new-price">
+                                                        2 477 ₽
+                                                    </div>
+                                                    <div class="card-product__old-price">
+                                                        3 900 ₽
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="options-color">
+                                                <label class="options-color__item">
+                                                    <input hidden class="options-color__input" type="radio" value="1"
+                                                        name="option-color1">
+                                                    <span class="options-color__label">
+                                                        <span class="options-color__icon">
+                                                            <span
+                                                                style="background: linear-gradient(100.04deg, #c2a18c -84.76%, #bd9b86 -26.91%, #b4927b 19.51%, #ad8977 76.28%, #684a59 144.38%, #53364b 244.7%);"
+                                                                class="options-color__circle"></span>
+                                                        </span>
+                                                    </span>
+                                                </label>
+                                                <label class="options-color__item">
+                                                    <input hidden class="options-color__input" type="radio" value="2"
+                                                        name="option-color1">
+                                                    <span class="options-color__label">
+                                                        <span class="options-color__icon">
+                                                            <span style="background: #eee2d3;"
+                                                                class="options-color__circle"></span>
+                                                        </span>
+                                                    </span>
+                                                </label>
+                                                <label class="options-color__item">
+                                                    <input hidden checked class="options-color__input" type="radio"
+                                                        value="3" name="option-color1">
+                                                    <span class="options-color__label">
+                                                        <span class="options-color__icon">
+                                                            <span
+                                                                style="background: #ffffff; border: 1px solid rgba(194, 161, 140,0.3);"
+                                                                class="options-color__circle"></span>
+                                                        </span>
+                                                    </span>
+                                                </label>
+                                                <label class="options-color__item">
+                                                    <input hidden class="options-color__input" type="radio" value="4"
+                                                        name="option-color1">
+                                                    <span class="options-color__label">
+                                                        <span class="options-color__icon">
+                                                            <span style="background: #5a3e50;"
+                                                                class="options-color__circle"></span>
+                                                        </span>
+                                                    </span>
+                                                </label>
+                                            </div>
+                                            <a href="./" class="btn btn-border-gold">
+                                                <span>Подробнее</span>
+                                                <img loading="lazy" src="img/icons/arrow1-gradient.svg" alt="">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="block-section__slide swiper-slide">
+                                    <div class="card-product">
+                                        <div class="card-product__image">
+                                            <div class="favorites">
+                                                <img loading="lazy" src="img/icons/heart-def.svg" alt=""
+                                                    class="favorites__icon1">
+                                                <img loading="lazy" src="img/icons/heart-active.svg" alt=""
+                                                    class="favorites__icon2">
+                                            </div>
+                                            <img loading="lazy" src="img/products/image2.webp" alt=""
+                                                class="card-product__pic1">
+                                            <a href="./" class="btn btn-border-white">
+                                                <span>Подробнее</span>
+                                                <svg aria-hidden="true" width="8" height="14">
+                                                    <use xlink:href="img/sprite.svg#arrow1"></use>
+                                                </svg>
+                                            </a>
+                                        </div>
+                                        <div class="card-product__item">
+                                            <div class="card-product__top">
+                                                <div data-text="Бюстгальтер без косточек бесшовный гладкий"
+                                                    class="card-product__title">
+                                                    Бюстгальтер без косточек бесшовный гладкий
+                                                </div>
+                                                <div class="card-product__prices">
+                                                    <div class="card-product__new-price">
+                                                        2 490 ₽
+                                                    </div>
+                                                    <div class="card-product__old-price">
+                                                        4 500 ₽
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="options-color">
+                                                <label class="options-color__item">
+                                                    <input hidden class="options-color__input" type="radio" value="1"
+                                                        name="option-color2">
+                                                    <span class="options-color__label">
+                                                        <span class="options-color__icon">
+                                                            <span
+                                                                style="background: linear-gradient(100.04deg, #c2a18c -84.76%, #bd9b86 -26.91%, #b4927b 19.51%, #ad8977 76.28%, #684a59 144.38%, #53364b 244.7%);"
+                                                                class="options-color__circle"></span>
+                                                        </span>
+                                                    </span>
+                                                </label>
+                                                <label class="options-color__item">
+                                                    <input hidden class="options-color__input" type="radio" value="2"
+                                                        name="option-color2">
+                                                    <span class="options-color__label">
+                                                        <span class="options-color__icon">
+                                                            <span style="background: #eee2d3;"
+                                                                class="options-color__circle"></span>
+                                                        </span>
+                                                    </span>
+                                                </label>
+                                                <label class="options-color__item">
+                                                    <input hidden checked class="options-color__input" type="radio"
+                                                        value="3" name="option-color2">
+                                                    <span class="options-color__label">
+                                                        <span class="options-color__icon">
+                                                            <span
+                                                                style="background: #ffffff; border: 1px solid rgba(194, 161, 140,0.3);"
+                                                                class="options-color__circle"></span>
+                                                        </span>
+                                                    </span>
+                                                </label>
+                                                <label class="options-color__item">
+                                                    <input hidden class="options-color__input" type="radio" value="4"
+                                                        name="option-color2">
+                                                    <span class="options-color__label">
+                                                        <span class="options-color__icon">
+                                                            <span style="background: #5a3e50;"
+                                                                class="options-color__circle"></span>
+                                                        </span>
+                                                    </span>
+                                                </label>
+                                            </div>
+                                            <a href="./" class="btn btn-border-gold">
+                                                <span>Подробнее</span>
+                                                <img loading="lazy" src="img/icons/arrow1-gradient.svg" alt="">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="block-section__slide swiper-slide">
+                                    <div class="card-product">
+                                        <div class="card-product__image">
+                                            <div class="favorites">
+                                                <img loading="lazy" src="img/icons/heart-def.svg" alt=""
+                                                    class="favorites__icon1">
+                                                <img loading="lazy" src="img/icons/heart-active.svg" alt=""
+                                                    class="favorites__icon2">
+                                            </div>
+                                            <img loading="lazy" src="img/products/image3.webp" alt=""
+                                                class="card-product__pic1">
+                                            <a href="./" class="btn btn-border-white">
+                                                <span>Подробнее</span>
+                                                <svg aria-hidden="true" width="8" height="14">
+                                                    <use xlink:href="img/sprite.svg#arrow1"></use>
+                                                </svg>
+                                            </a>
+                                        </div>
+                                        <div class="card-product__item">
+                                            <div class="card-product__top">
+                                                <div data-text="Бюстгальтер бесшовный гладкий с чашками"
+                                                    class="card-product__title">
+                                                    Бюстгальтер бесшовный гладкий с чашками
+                                                </div>
+                                                <div class="card-product__prices">
+                                                    <div class="card-product__new-price">
+                                                        1 631 ₽
+                                                    </div>
+                                                    <div class="card-product__old-price">
+                                                        3 900 ₽
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="options-color">
+                                                <label class="options-color__item">
+                                                    <input hidden class="options-color__input" type="radio" value="1"
+                                                        name="option-color3">
+                                                    <span class="options-color__label">
+                                                        <span class="options-color__icon">
+                                                            <span
+                                                                style="background: linear-gradient(100.04deg, #c2a18c -84.76%, #bd9b86 -26.91%, #b4927b 19.51%, #ad8977 76.28%, #684a59 144.38%, #53364b 244.7%);"
+                                                                class="options-color__circle"></span>
+                                                        </span>
+                                                    </span>
+                                                </label>
+                                                <label class="options-color__item">
+                                                    <input hidden class="options-color__input" type="radio" value="2"
+                                                        name="option-color3">
+                                                    <span class="options-color__label">
+                                                        <span class="options-color__icon">
+                                                            <span style="background: #eee2d3;"
+                                                                class="options-color__circle"></span>
+                                                        </span>
+                                                    </span>
+                                                </label>
+                                                <label class="options-color__item">
+                                                    <input hidden checked class="options-color__input" type="radio"
+                                                        value="3" name="option-color3">
+                                                    <span class="options-color__label">
+                                                        <span class="options-color__icon">
+                                                            <span
+                                                                style="background: #ffffff; border: 1px solid rgba(194, 161, 140,0.3);"
+                                                                class="options-color__circle"></span>
+                                                        </span>
+                                                    </span>
+                                                </label>
+                                                <label class="options-color__item">
+                                                    <input hidden class="options-color__input" type="radio" value="4"
+                                                        name="option-color3">
+                                                    <span class="options-color__label">
+                                                        <span class="options-color__icon">
+                                                            <span style="background: #5a3e50;"
+                                                                class="options-color__circle"></span>
+                                                        </span>
+                                                    </span>
+                                                </label>
+                                            </div>
+                                            <a href="./" class="btn btn-border-gold">
+                                                <span>Подробнее</span>
+                                                <img loading="lazy" src="img/icons/arrow1-gradient.svg" alt="">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="block-section__slide swiper-slide">
+                                    <div class="card-product">
+                                        <div class="card-product__image">
+                                            <div class="favorites">
+                                                <img loading="lazy" src="img/icons/heart-def.svg" alt=""
+                                                    class="favorites__icon1">
+                                                <img loading="lazy" src="img/icons/heart-active.svg" alt=""
+                                                    class="favorites__icon2">
+                                            </div>
+                                            <img loading="lazy" src="img/products/image4.webp" alt=""
+                                                class="card-product__pic1">
+                                            <a href="./" class="btn btn-border-white">
+                                                <span>Подробнее</span>
+                                                <svg aria-hidden="true" width="8" height="14">
+                                                    <use xlink:href="img/sprite.svg#arrow1"></use>
+                                                </svg>
+                                            </a>
+                                        </div>
+                                        <div class="card-product__item">
+                                            <div class="card-product__top">
+                                                <div data-text="Бюстгальтер топ бесшовный без косточек гладкий"
+                                                    class="card-product__title">
+                                                    Бюстгальтер топ бесшовный без косточек гладкий
+                                                </div>
+                                                <div class="card-product__prices">
+                                                    <div class="card-product__new-price">
+                                                        1 631 ₽
+                                                    </div>
+                                                    <div class="card-product__old-price">
+                                                        3 900 ₽
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="options-color">
+                                                <label class="options-color__item">
+                                                    <input hidden class="options-color__input" type="radio" value="1"
+                                                        name="option-color4">
+                                                    <span class="options-color__label">
+                                                        <span class="options-color__icon">
+                                                            <span
+                                                                style="background: linear-gradient(100.04deg, #c2a18c -84.76%, #bd9b86 -26.91%, #b4927b 19.51%, #ad8977 76.28%, #684a59 144.38%, #53364b 244.7%);"
+                                                                class="options-color__circle"></span>
+                                                        </span>
+                                                    </span>
+                                                </label>
+                                                <label class="options-color__item">
+                                                    <input hidden class="options-color__input" type="radio" value="2"
+                                                        name="option-color4">
+                                                    <span class="options-color__label">
+                                                        <span class="options-color__icon">
+                                                            <span style="background: #eee2d3;"
+                                                                class="options-color__circle"></span>
+                                                        </span>
+                                                    </span>
+                                                </label>
+                                                <label class="options-color__item">
+                                                    <input hidden checked class="options-color__input" type="radio"
+                                                        value="3" name="option-color4">
+                                                    <span class="options-color__label">
+                                                        <span class="options-color__icon">
+                                                            <span
+                                                                style="background: #ffffff; border: 1px solid rgba(194, 161, 140,0.3);"
+                                                                class="options-color__circle"></span>
+                                                        </span>
+                                                    </span>
+                                                </label>
+                                                <label class="options-color__item">
+                                                    <input hidden class="options-color__input" type="radio" value="4"
+                                                        name="option-color4">
+                                                    <span class="options-color__label">
+                                                        <span class="options-color__icon">
+                                                            <span style="background: #5a3e50;"
+                                                                class="options-color__circle"></span>
+                                                        </span>
+                                                    </span>
+                                                </label>
+                                            </div>
+                                            <a href="./" class="btn btn-border-gold">
+                                                <span>Подробнее</span>
+                                                <img loading="lazy" src="img/icons/arrow1-gradient.svg" alt="">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="block-section__slide swiper-slide">
+                                    <div class="card-product">
+                                        <div class="card-product__image">
+                                            <div class="favorites">
+                                                <img loading="lazy" src="img/icons/heart-def.svg" alt=""
+                                                    class="favorites__icon1">
+                                                <img loading="lazy" src="img/icons/heart-active.svg" alt=""
+                                                    class="favorites__icon2">
+                                            </div>
+                                            <img loading="lazy" src="img/products/image1.webp" alt=""
+                                                class="card-product__pic1">
+                                            <a href="./" class="btn btn-border-white">
+                                                <span>Подробнее</span>
+                                                <svg aria-hidden="true" width="8" height="14">
+                                                    <use xlink:href="img/sprite.svg#arrow1"></use>
+                                                </svg>
+                                            </a>
+                                        </div>
+                                        <div class="card-product__item">
+                                            <div class="card-product__top">
+                                                <div data-text="Бюстгальтер без косточек с пушапом"
+                                                    class="card-product__title">
+                                                    Бюстгальтер без косточек с пушапом
+                                                </div>
+                                                <div class="card-product__prices">
+                                                    <div class="card-product__new-price">
+                                                        2 477 ₽
+                                                    </div>
+                                                    <div class="card-product__old-price">
+                                                        3 900 ₽
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="options-color">
+                                                <label class="options-color__item">
+                                                    <input hidden class="options-color__input" type="radio" value="1"
+                                                        name="option-color5">
+                                                    <span class="options-color__label">
+                                                        <span class="options-color__icon">
+                                                            <span
+                                                                style="background: linear-gradient(100.04deg, #c2a18c -84.76%, #bd9b86 -26.91%, #b4927b 19.51%, #ad8977 76.28%, #684a59 144.38%, #53364b 244.7%);"
+                                                                class="options-color__circle"></span>
+                                                        </span>
+                                                    </span>
+                                                </label>
+                                                <label class="options-color__item">
+                                                    <input hidden class="options-color__input" type="radio" value="2"
+                                                        name="option-color5">
+                                                    <span class="options-color__label">
+                                                        <span class="options-color__icon">
+                                                            <span style="background: #eee2d3;"
+                                                                class="options-color__circle"></span>
+                                                        </span>
+                                                    </span>
+                                                </label>
+                                                <label class="options-color__item">
+                                                    <input hidden checked class="options-color__input" type="radio"
+                                                        value="3" name="option-color5">
+                                                    <span class="options-color__label">
+                                                        <span class="options-color__icon">
+                                                            <span
+                                                                style="background: #ffffff; border: 1px solid rgba(194, 161, 140,0.3);"
+                                                                class="options-color__circle"></span>
+                                                        </span>
+                                                    </span>
+                                                </label>
+                                                <label class="options-color__item">
+                                                    <input hidden class="options-color__input" type="radio" value="4"
+                                                        name="option-color5">
+                                                    <span class="options-color__label">
+                                                        <span class="options-color__icon">
+                                                            <span style="background: #5a3e50;"
+                                                                class="options-color__circle"></span>
+                                                        </span>
+                                                    </span>
+                                                </label>
+                                            </div>
+                                            <a href="./" class="btn btn-border-gold">
+                                                <span>Подробнее</span>
+                                                <img loading="lazy" src="img/icons/arrow1-gradient.svg" alt="">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="button" class="section-arrow-prev slider-nav arrow-prev">
+                            <svg aria-hidden="true" width="10" height="19">
+                                <use xlink:href="img/sprite.svg#arrow1"></use>
+                            </svg>
+                        </button>
+                        <button type="button" class="section-arrow-next slider-nav arrow-next">
+                            <svg aria-hidden="true" width="10" height="19">
+                                <use xlink:href="img/sprite.svg#arrow1"></use>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="block-help">
+                <div class="container">
+                    <div class="block-help__content">
+                        <div class="heading-complex">
+                            <h2 class="title2">
+                                Если вы считаете, что страница пропала по ошибке сайта, пожалуйста, сообщите нам. Мы всё
+                                починим
+                            </h2>
+                        </div>
+                        <div class="block-help__buttons">
+                            <a href="./" class="btn">
+                                <span>Написать в Telegram</span>
+                            </a>
+                            <a href="./" class="btn btn-border-brown">
+                                <span>Написать в MAX</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+        {% include 'blocks/footer.njk' %}
+    </div>
+    {% include 'blocks/popups.njk' %}
+    {% include 'blocks/scripts.njk' %}
+</body>
+
+</html>

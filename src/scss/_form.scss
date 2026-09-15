@@ -195,6 +195,270 @@
     }
 }
 
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    max-width: 410px;
+    width: 100%;
+    margin: 0 auto;
+    @media (max-width: 768px) {
+        gap: 30px;
+    }
+    @media (max-width: 550px) {
+        max-width: 100%;
+    }
+    &.form-password {
+        margin-top: -21px;
+        @media (max-width: 768px) {
+            margin-top: 0px;
+        }
+        .form__buttons {
+            align-items: center;
+        }
+        .btn {
+            padding: 10px 45px;
+            width: fit-content;
+            @media (max-width: 550px) {
+                padding: 10px 20px;
+                width: 100%;
+            }
+        }
+    }
+    // .form__inputs
+
+    &__inputs {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    // .form__input
+
+    &__input {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        position: relative;
+        border-bottom: 1px solid rgba(194, 161, 140, 0.5);
+        transition: border-bottom 0.3s;
+        &._form-focus {
+            border-bottom: 1px solid var(--style);
+            img {
+                filter: grayscale(1) brightness(0.5) sepia(0.4) hue-rotate(280deg) saturate(1.5);
+            }
+        }
+        &._form-error {
+            border-bottom: 1px solid red;
+        }
+        img {
+            position: absolute;
+            width: 16px;
+            height: auto;
+            top: 50%;
+            transform: translate(0px, -50%);
+            left: 0;
+        }
+        .input {
+            height: 70px;
+            padding: 20px 20px 20px 41px;
+            width: 100%;
+            font-family: var(--second-family);
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 144%;
+            color: var(--style);
+            transition: -webkit-text-fill-color 0.3s;
+            &::placeholder {
+                font-family: var(--second-family);
+                font-weight: 400;
+                font-size: 18px;
+                line-height: 144%;
+                background: linear-gradient(
+                    105.85deg,
+                    #c2a18c -37.04%,
+                    #bd9b86 -5.4%,
+                    #b4927b 19.98%,
+                    #ad8977 51.02%,
+                    #684a59 88.26%,
+                    #53364b 143.12%
+                );
+                background-clip: text;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+            &.textarea {
+                resize: none;
+            }
+            &._form-focus {
+                -webkit-text-fill-color: var(--style);
+                &::placeholder {
+                    -webkit-text-fill-color: var(--style);
+                }
+            }
+            @media (max-width: 768px) {
+                padding: 20px 20px 22px 31px;
+            }
+        }
+    }
+
+    // .form__viewpass
+
+    &__viewpass {
+        cursor: pointer;
+        right: 0px;
+        top: 50%;
+        transform: translate(0px, -50%);
+        position: relative;
+        flex: 0 0 16px;
+        width: 16px;
+        height: 16px;
+        display: flex;
+        margin: 16px 0px 0px 10px;
+        justify-content: center;
+        align-items: center;
+        transition: opacity 0.3s;
+        &._viewpass-active {
+            img {
+                &.icon1 {
+                    opacity: 0;
+                }
+                &.icon2 {
+                    opacity: 1;
+                }
+            }
+        }
+        &:hover {
+            opacity: 0.7;
+        }
+        img {
+            width: 100%;
+            height: auto;
+            &.icon2 {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 100%;
+                height: auto;
+                opacity: 0;
+            }
+        }
+    }
+
+    // .form__buttons
+
+    &__buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+        @media (max-width: 768px) {
+            gap: 20px;
+        }
+        .btn {
+            width: 100%;
+        }
+    }
+
+    // .form__links
+
+    &__links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px 10px;
+        justify-content: space-between;
+        @media (max-width: 550px) {
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+
+    // .form__link
+
+    &__link {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 186%;
+        transition: opacity 0.3s;
+        @media (max-width: 768px) {
+            text-align: center;
+        }
+        svg {
+            fill: var(--style);
+        }
+        @media (any-hover: hover) {
+            &:hover {
+                opacity: 0.7;
+            }
+        }
+    }
+
+    // .form__text
+
+    &__text {
+        max-width: 753px;
+        margin: 0 auto;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 163%;
+        text-align: center;
+        background: linear-gradient(
+            105.85deg,
+            #c2a18c -19.77%,
+            #bd9b86 3.56%,
+            #b4927b 22.28%,
+            #ad8977 45.17%,
+            #684a59 72.63%,
+            #53364b 113.08%
+        );
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        @media (max-width: 768px) {
+            font-size: 14px;
+        }
+        a {
+            -webkit-text-fill-color: var(--style);
+            text-decoration: underline;
+            text-decoration-skip-ink: none;
+            transition: opacity 0.3s;
+            color: var(--style);
+            @media (any-hover: hover) {
+                &:hover {
+                    opacity: 0.7;
+                }
+            }
+        }
+    }
+}
+.form-newsletter {
+    flex: 0 1 755px;
+    display: flex;
+    align-items: flex-end;
+    flex-direction: row;
+    gap: 30px;
+    max-width: 100%;
+    margin: 0px 0px 0px 0px;
+    @media (max-width: 1300px) {
+        flex: 0 1 auto;
+        width: 100%;
+    }
+    @media (max-width: 768px) {
+        flex-direction: column;
+    }
+    .btn {
+        flex: 0 0 258px;
+        @media (max-width: 768px) {
+            flex: 0 1 auto;
+            width: 100%;
+        }
+    }
+}
+
 /* Чекбокс
 .checkbox {
     position: relative;
