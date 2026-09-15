@@ -2,7 +2,7 @@
 <html lang="ru">
 
 	<head>
-		<title>Спасибо за заказ</title>
+		<title>Личный кабинет - вход</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -98,7 +98,7 @@
 			</header>
 			<main class="main">
 
-				<div class="block-main">
+				<div class="block-main block-main-forms">
 					<div class="container">
 						<div class="block-main__content">
 							<div class="heading-complex">
@@ -109,123 +109,49 @@
 												<img src="img/icons/home.svg" alt="">
 											</a>
 										</li>
-										<li><span>Спасибо за ваш заказ!</span></li>
+										<li><span>Войти</span></li>
 									</ul>
 								</div>
-								<div class="block-check">
-									<div class="block-check__icon">
-										<img src="img/icons/tick.svg" alt="">
-									</div>
-									<h1 class="title1">Спасибо за ваш заказ!</h1>
-									<p>
-										Мы уже начали собирать его для вас. Надеемся, что наши изделия<br> подарят вам
-										абсолютный комфорт
-									</p>
-								</div>
-								<div class="card-buy">
-									<div class="card-buy__top status-paid">
-										<div class="card-buy__name">
-											Заказ № 12345
-										</div>
-										<div class="card-buy__status">
-											Оплачен успешно
-										</div>
-									</div>
-									<div class="card-buy__text">
-										Электронный чек и подтверждение заказа уже отправлены на вашу электронную почту
-									</div>
-								</div>
+								<h1 class="title1">Войти или создать аккаунт</h1>
+								<a href="./" class="btn">
+									<span>Войти через Яндекс ID</span>
+								</a>
 							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="block-order-steps">
-					<div class="container">
-						<h2 class="title2">
-							Что будет дальше?
-						</h2>
-						<div class="block-order-steps__content">
-							<div class="block-order-steps__body">
-								<div class="card-steps">
-									<div class="card-steps__badge">
-										Шаг 1
-									</div>
-									<div class="card-steps__item">
-										<div class="card-steps__icon">
-											<img loading="lazy" src="img/icons/send.svg" alt="">
-										</div>
-										<div class="card-steps__titles">
-											<p>
-												В течение 1–2 рабочих дней мы аккуратно упакуем ваш заказ на нашем складе
-											</p>
-										</div>
-									</div>
-								</div>
-								<div class="card-steps">
-									<div class="card-steps__badge">
-										Шаг 2
-									</div>
-									<div class="card-steps__item">
-										<div class="card-steps__icon">
-											<img loading="lazy" src="img/icons/delivery2.svg" alt="">
-										</div>
-										<div class="card-steps__titles">
-											<p>
-												Передадим посылку в службу доставки Озон. Мы пришлем вам трек-номер на почту
-												и
-												также можете отслеживать в своем приложении Озон
-											</p>
-										</div>
-									</div>
-								</div>
-								<div class="card-steps">
-									<div class="card-steps__badge">
-										Шаг 3
-									</div>
-									<div class="card-steps__item">
-										<div class="card-steps__icon">
-											<img loading="lazy" src="img/icons/notification-alarm.svg" alt="">
-										</div>
-										<div class="card-steps__titles">
-											<p>
-												Как только заказ прибудет в выбранный пункт выдачи, вы получите уведомление
-											</p>
-										</div>
-									</div>
-								</div>
+							<div class="block-main-forms__center">
+								<div class="block-main-forms__line"></div>
+								<span>или</span>
+								<div class="block-main-forms__line"></div>
 							</div>
-							<div class="block-order-steps__status">
-								<ul>
-									<li>
-										<div class="block-order-steps__name">
-											Товары (3 шт.):
-										</div>
-										<div class="block-order-steps__line"></div>
-										<div class="block-order-steps__value">
-											ПВЗ Ozon, г. Москва, ул. Ленина, д. 45
-										</div>
-									</li>
-									<li>
-										<div class="block-order-steps__name">
-											Ваша скидка (15%):
-										</div>
-										<div class="block-order-steps__line"></div>
-										<div class="block-order-steps__value">
-											Сумма этого заказа будет учтена в вашей программе лояльности через 14 дней после
-											получения посылки
-										</div>
-									</li>
-								</ul>
-								<div class="block-order-steps__buttons">
-									<a href="./" class="btn">
-										<span>Отслеживать статус заказа</span>
-									</a>
-									<a href="./" class="btn btn-border-brown">
-										<span>Смотреть новинки</span>
-									</a>
+							<form action="#" data-dev data-popup-message="#thanks" class="form">
+								<div class="form__inputs">
+									<div class="form__input">
+										<img loading="lazy" src="img/icons/mail1.svg" alt="">
+										<input data-required autocomplete="off" type="text" name="form[]" placeholder="Email" class="input">
+									</div>
+									<div class="form__input">
+										<img loading="lazy" src="img/icons/lock.svg" alt="">
+										<input data-required autocomplete="off" type="password" name="form[]" placeholder="Пароль" class="input">
+										<button type="button" class="form__viewpass">
+											<img src="img/icons/eye1.svg" alt="" class="icon1">
+											<img src="img/icons/eye2.svg" alt="" class="icon2">
+										</button>
+									</div>
 								</div>
-							</div>
+								<div class="form__buttons">
+									<button type="submit" class="btn btn-border-brown">
+										<span>Войти</span>
+									</button>
+									<div class="form__links">
+										<a href="./" class="form__link">Забыли пароль?</a>
+										<a href="./" class="form__link">
+											<span>Зарегистрироваться</span>
+											<svg aria-hidden="true" width="6" height="11">
+												<use xlink:href="img/sprite.svg#arrow1"></use>
+											</svg>
+										</a>
+									</div>
+								</div>
+							</form>
 						</div>
 					</div>
 				</div>

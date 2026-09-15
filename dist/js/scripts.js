@@ -1459,28 +1459,31 @@ if (productCheckboxes) {
 //========================================================================================================================================================
 
 const filterCards = document.querySelectorAll('.filter-card');
-
 if (filterCards) {
   const filterButtons = document.querySelectorAll('.filter-sorting__button');
+
   function filterCardsByValue(filterValue) {
     filterCards.forEach(card => {
       const cardFilter = card.getAttribute('data-filter');
-      if (filterValue === 'all' || cardFilter === filterValue) {
-        card.style.display = '';
-        card.classList.remove('hidden');
-      } else {
-        card.style.display = 'none';
-        card.classList.add('hidden');
-      }
+      const show = filterValue === 'all' || cardFilter === filterValue;
+      card.style.display = show ? '' : 'none';
+      card.classList.toggle('hidden', !show);
     });
+  }
+
+  const initialActive = document.querySelector('.filter-sorting__button.active');
+  if (initialActive) {
+    const initialValue = initialActive.getAttribute('data-filter');
+    if (initialValue) filterCardsByValue(initialValue);
   }
 
   filterButtons.forEach(button => {
     button.addEventListener('click', function () {
       filterButtons.forEach(btn => btn.classList.remove('active'));
       this.classList.add('active');
+
       const filterValue = this.getAttribute('data-filter');
-      filterCardsByValue(filterValue);
+      filterCardsByValue(filterValue || 'all');
     });
   });
 }
