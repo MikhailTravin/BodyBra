@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <title>Оформление заказа - данные покупателя</title>
+    {% include 'blocks/head.njk' %}
+</head>
+
+<body class="preload mp">
+    <div class="main-wrapper-outer">
+        {% include 'blocks/header.njk' %}
+        <main class="main">
+
+            <div class="block-main block-main-order">
+                <div class="container">
+                    <div class="block-main__content">
+                        <div class="heading-complex">
+                            <div class="breadcrumbs">
+                                <ul>
+                                    <li>
+                                        <a href="#" class="home">
+                                            <img src="img/icons/home.svg" alt="">
+                                        </a>
+                                    </li>
+                                    <li><span>Корзина и оформление заказа</span></li>
+                                </ul>
+                            </div>
+                            <h1 class="title1">
+                                Оформление заказа
+                            </h1>
+                        </div>
+                        <div class="filter-sorting">
+                            <div class="filter-sorting__button active">
+                                <span data-text="Корзина">Корзина</span>
+                            </div>
+                            <div class="filter-sorting__button active">
+                                <span data-text="Данные покупателя">Данные покупателя</span>
+                            </div>
+                            <div class="filter-sorting__button">
+                                <span data-text="Выбор доставки">Выбор доставки</span>
+                            </div>
+                            <div class="filter-sorting__button">
+                                <span data-text="Способ оплаты">Способ оплаты</span>
+                            </div>
+                            <div class="filter-sorting__button">
+                                <span data-text="Итоговая смета">Итоговая смета</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="block-order">
+                <div class="container">
+                    <form action="#" class="block-order__content">
+                        <div class="form">
+                            <div class="form__inputs">
+                                <div class="form__input">
+                                    <img loading="lazy" src="img/icons/user1.svg" alt="">
+                                    <input data-required autocomplete="off" type="text" name="form[]" placeholder="Имя"
+                                        class="input">
+                                </div>
+                                <div class="form__input">
+                                    <img loading="lazy" src="img/icons/user1.svg" alt="">
+                                    <input data-required autocomplete="off" type="text" name="form[]"
+                                        placeholder="Фамилия" class="input">
+                                </div>
+                                <div class="form__input">
+                                    <img loading="lazy" src="img/icons/mail1.svg" alt="">
+                                    <input data-required autocomplete="off" type="text" name="form[]"
+                                        placeholder="Электронная почта" class="input">
+                                </div>
+                                <div class="form__input">
+                                    <img loading="lazy" src="img/icons/phone.svg" alt="">
+                                    <input data-required autocomplete="off" type="text" name="form[]"
+                                        placeholder="Телефон" class="input">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="block-order__buttons">
+                            <a href="./" class="btn btn-border-brown">
+                                <span>Назад</span>
+                            </a>
+                            <button type="submit" class="btn">
+                                <span>Далее</span>
+                                <svg aria-hidden="true" width="6" height="11">
+                                    <use xlink:href="img/sprite.svg#arrow1"></use>
+                                </svg>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="block-help">
+                <div class="container">
+                    <div class="block-help__content">
+                        <div class="heading-complex">
+                            <h2 class="title2">
+                                Возникли сложности с выбором размера или оформлением заказа?
+                            </h2>
+                            <p>
+                                Напишите нам, мы на связи ежедневно <span class="sale-text">с 10:00 до 20:00</span>
+                            </p>
+                        </div>
+                        <div class="block-help__buttons">
+                            <a href="./" class="btn">
+                                <span>Написать в Telegram</span>
+                            </a>
+                            <a href="./" class="btn btn-border-brown">
+                                <span>Написать в MAX</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+        {% include 'blocks/footer.njk' %}
+    </div>
+    {% include 'blocks/popups.njk' %}
+    {% include 'blocks/scripts.njk' %}
+</body>
+
+</html>

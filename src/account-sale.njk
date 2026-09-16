@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <title>Личный кабинет - моя скидка</title>
+    {% include 'blocks/head.njk' %}
+</head>
+
+<body class="preload mp">
+    <div class="main-wrapper-outer">
+        {% include 'blocks/header.njk' %}
+        <main class="main">
+
+            <div class="block-account">
+                <div class="container">
+                    <div class="block-account__contents">
+                        <div class="breadcrumbs">
+                            <ul>
+                                <li>
+                                    <a href="#" class="home">
+                                        <img src="img/icons/home.svg" alt="">
+                                    </a>
+                                </li>
+                                <li><span>Личный кабинет</span></li>
+                            </ul>
+                        </div>
+                        <div class="block-account__content">
+                            <div class="account-menu">
+                                <ul>
+                                    <li>
+                                        <a href="./">
+                                            <img src="img/icons/user1.svg" alt="">
+                                            <span>Главная</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="./" class="active">
+                                            <img src="img/icons/sale-percent.svg" alt="">
+                                            <span>Моя скидка</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="./">
+                                            <img src="img/icons/history.svg" alt="">
+                                            <span>История заказов</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="./">
+                                            <img src="img/icons/heart.svg" alt="">
+                                            <span>Избранное</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="./">
+                                            <img src="img/icons/info.svg" alt="">
+                                            <span>Личные данные</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="./" class="logout">
+                                            <span>Выйти</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="block-account__body">
+                                <div class="block-account__top">
+                                    <h1 class="title1">
+                                        Ваша накопительная скидка
+                                    </h1>
+                                </div>
+                                <div class="account-sale">
+                                    <div class="account-sale__left">
+                                        <div class="account-sale__body">
+                                            <div class="account-sale__top">
+                                                <div class="account-sale__title">
+                                                    Ваша скидка <span class="sale-text">5%</span>
+                                                </div>
+                                                <div class="account-sale__items">
+                                                    <div class="account-sale__line">
+                                                        <span style="--percent: 32.5%"></span>
+                                                    </div>
+                                                    <div class="account-sale__percents">
+                                                        <div class="account-sale__persent">
+                                                            <span>0%</span>
+                                                        </div>
+                                                        <div class="account-sale__persent">
+                                                            <span>5%</span>
+                                                        </div>
+                                                        <div class="account-sale__persent">
+                                                            <span>10%</span>
+                                                        </div>
+                                                        <div class="account-sale__persent">
+                                                            <span>15%</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="account-sale__bottom">
+                                                <div class="account-sale__title">
+                                                    Сумма выкупленных заказов
+                                                </div>
+                                                <div class="account-sale__item">
+                                                    <div class="account-sale__price">
+                                                        <span>32 500 ₽</span>
+                                                    </div>
+                                                    <p>
+                                                        До перехода на следующий уровень <span class="sale-text">(скидку
+                                                            10%)</span> осталось совершить
+                                                        покупки на сумму <strong>17 500 ₽</strong>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div data-spollers class="spollers-faq">
+                                            <div class="spollers-faq__item">
+                                                <button type="button" data-spoller class="spollers-faq__button">
+                                                    <div class="spollers-faq__icon">
+                                                        <span></span>
+                                                    </div>
+                                                    <div class="spollers-faq__title">
+                                                        Как накапливается сумма?
+                                                    </div>
+                                                </button>
+                                                <div class="spollers-faq__body">
+                                                    <div class="spollers-faq__text">
+                                                        <p>
+                                                            Да. Мы ценим наших постоянных клиенток, поэтому ваша
+                                                            персональная скидка автоматически суммируется со скидками в
+                                                            разделе «Скидки»
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="spollers-faq__item">
+                                                <button type="button" data-spoller class="spollers-faq__button">
+                                                    <div class="spollers-faq__icon"><span></span></div>
+                                                    <div class="spollers-faq__title">
+                                                        Суммируется ли скидка с распродажей?
+                                                    </div>
+                                                </button>
+                                                <div class="spollers-faq__body">
+                                                    <div class="spollers-faq__text">
+                                                        <p>
+                                                            Да. Мы ценим наших постоянных клиенток, поэтому ваша
+                                                            персональная скидка автоматически суммируется со скидками в
+                                                            разделе «Скидки»
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="spollers-faq__item">
+                                                <button type="button" data-spoller class="spollers-faq__button">
+                                                    <div class="spollers-faq__icon"><span></span></div>
+                                                    <div class="spollers-faq__title">
+                                                        Как применить скидку?
+                                                    </div>
+                                                </button>
+                                                <div class="spollers-faq__body">
+                                                    <div class="spollers-faq__text">
+                                                        <p>
+                                                            Да. Мы ценим наших постоянных клиенток, поэтому ваша
+                                                            персональная скидка автоматически суммируется со скидками в
+                                                            разделе «Скидки»
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div data-da=".account-sale__body, 1500, 2" class="account-sale-right">
+                                        <div class="account-sale-right__column active">
+                                            <div class="account-sale-right__price">
+                                                От 15 000 ₽
+                                            </div>
+                                            <div class="account-sale-right__text">
+                                                Скидка 5%
+                                            </div>
+                                        </div>
+                                        <div class="account-sale-right__column">
+                                            <div class="account-sale-right__price">
+                                                От 50 000 ₽
+                                            </div>
+                                            <div class="account-sale-right__text">
+                                                Скидка 10%
+                                            </div>
+                                        </div>
+                                        <div class="account-sale-right__column">
+                                            <div class="account-sale-right__price">
+                                                От 100 000 ₽
+                                            </div>
+                                            <div class="account-sale-right__text">
+                                                Максимальная скидка 15%
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="background: #f8ecdd;" class="block-help block-help-other">
+                <div class="container">
+                    <div class="block-help__content">
+                        <div class="heading-complex">
+                            <h2 class="title2">
+                                Порадуйте себя и станьте еще на шаг ближе к <span>максимальной скидке</span>
+                            </h2>
+                        </div>
+                        <div class="block-help__buttons">
+                            <a href="./" class="btn">
+                                <span>Перейти к Новинкам</span>
+                            </a>
+                            <a href="./" class="btn btn-border-brown">
+                                <span>Смотреть Каталог</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+        {% include 'blocks/footer.njk' %}
+    </div>
+    {% include 'blocks/popups.njk' %}
+    {% include 'blocks/scripts.njk' %}
+</body>
+
+</html>

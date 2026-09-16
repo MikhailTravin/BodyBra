@@ -784,11 +784,11 @@ a {
     letter-spacing: 0.2em;
     text-align: center;
     text-transform: uppercase;
+    background-color: var(--ffffff);
     text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: transparent;
     transition:
       background-color 0.3s,
       color 0.3s;
@@ -973,6 +973,7 @@ a {
   // .spollers-faq__button
 
   &__button {
+    width: 100%;
     padding: 0px 0px 24px 0px;
     position: relative;
     @media (max-width: 768px) {
