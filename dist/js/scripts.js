@@ -1515,6 +1515,57 @@ if (blockSearch) {
 }
 
 //========================================================================================================================================================
+
+//Яндекс карта
+const map1 = document.querySelector('#map1');
+
+if (map1) {
+  ymaps.ready(init);
+
+  function init() {
+    var myMap = new ymaps.Map('map1', {
+      center: [43.181311, 76.810044],
+      zoom: 15,
+      controls: ['zoomControl'],
+      behaviors: ['drag']
+    }, {
+      searchControlProvider: 'yandex#search'
+    });
+
+    function createOzonPlacemark(coords, text, imageUrl = null) {
+
+      let contentHtml = imageUrl
+        ? `<img src="${imageUrl}" class="ozon-img" alt="icon">`
+        : `<div class="ozon-text">${text}</div>`;
+
+      return new ymaps.Placemark(coords, {
+        hintContent: text,
+        balloonContent: text
+      }, {
+        iconLayout: 'default#imageWithContent',
+        iconImageHref: 'img/ozon1.webp',
+        iconImageSize: [70, 70],
+        iconImageOffset: [-35, -35],
+        iconContentLayout: ymaps.templateLayoutFactory.createClass(contentHtml)
+      });
+    }
+
+    const places = [
+      { coords: [43.181311, 76.810044], text: 'OZON', img: 'img/ozon1.webp' },
+      { coords: [43.182500, 76.812000], text: 'OZON', img: 'img/ozon1.webp' },
+      { coords: [43.180000, 76.808000], text: 'OZON', img: 'img/ozon1.webp' },
+      { coords: [43.183000, 76.809000], text: 'OZON', img: 'img/ozon1.webp' }
+    ];
+
+    places.forEach(place => {
+      const placemark = createOzonPlacemark(place.coords, place.text, place.img);
+      myMap.geoObjects.add(placemark);
+    });
+
+  }
+}
+
+//========================================================================================================================================================
 /*
 if (document.querySelector('.block-teams__slider')) {
   const teamsSwiper = new Swiper('.block-teams__slider', {

@@ -2,7 +2,7 @@
 <html lang="ru">
 
 	<head>
-		<title>Личный кабинет - главная</title>
+		<title>Оформление заказа - итоговая смета</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -98,111 +98,128 @@
 			</header>
 			<main class="main">
 
-				<div class="block-account">
+				<div class="block-main block-main-order">
 					<div class="container">
-						<div class="block-account__contents">
-							<div class="breadcrumbs">
-								<ul>
-									<li>
-										<a href="#" class="home">
-											<img src="img/icons/home.svg" alt="">
-										</a>
-									</li>
-									<li><span>Личный кабинет</span></li>
-								</ul>
-							</div>
-							<div class="block-account__content">
-								<div class="account-menu">
+						<div class="block-main__content">
+							<div class="heading-complex">
+								<div class="breadcrumbs">
 									<ul>
 										<li>
-											<a href="./" class="active">
-												<img src="img/icons/user1.svg" alt="">
-												<span>Главная</span>
+											<a href="#" class="home">
+												<img src="img/icons/home.svg" alt="">
 											</a>
 										</li>
+										<li><span>Корзина и оформление заказа</span></li>
+									</ul>
+								</div>
+								<h1 class="title1">
+									Оформление заказа
+								</h1>
+							</div>
+							<div class="filter-sorting">
+								<div class="filter-sorting__button active">
+									<span data-text="Корзина">Корзина</span>
+								</div>
+								<div class="filter-sorting__button active">
+									<span data-text="Данные покупателя">Данные покупателя</span>
+								</div>
+								<div class="filter-sorting__button active">
+									<span data-text="Выбор доставки">Выбор доставки</span>
+								</div>
+								<div class="filter-sorting__button active">
+									<span data-text="Способ оплаты">Способ оплаты</span>
+								</div>
+								<div class="filter-sorting__button active">
+									<span data-text="Итоговая смета">Итоговая смета</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="block-order">
+					<div class="container">
+						<div class="block-order__content">
+							<form action="#" class="block-order__total">
+								<div class="block-order__info">
+									<ul>
 										<li>
-											<a href="./">
-												<img src="img/icons/sale-percent.svg" alt="">
-												<span>Моя скидка</span>
-											</a>
+											<div class="block-order__name">
+												Товары (3 шт.):
+											</div>
+											<div class="block-order__line"></div>
+											<div class="block-order__value">
+												7 500 ₽
+											</div>
 										</li>
 										<li>
-											<a href="./">
-												<img src="img/icons/history.svg" alt="">
-												<span>История заказов</span>
-											</a>
+											<div class="block-order__name">
+												Ваша скидка (15%):
+											</div>
+											<div class="block-order__line"></div>
+											<div class="block-order__value value-bg">
+												-1 125 ₽
+											</div>
 										</li>
 										<li>
-											<a href="./">
-												<img src="img/icons/heart.svg" alt="">
-												<span>Избранное</span>
-											</a>
+											<div class="block-order__name">
+												Доставка (Ozon):
+											</div>
+											<div class="block-order__line"></div>
+											<div class="block-order__value">
+												250 ₽
+											</div>
 										</li>
 										<li>
-											<a href="./">
-												<img src="img/icons/info.svg" alt="">
-												<span>Личные данные</span>
-											</a>
-										</li>
-										<li>
-											<a href="./" class="logout">
-												<span>Выйти</span>
-											</a>
+											<div class="block-order__name name-total">
+												Итого к оплате:
+											</div>
+											<div class="block-order__line"></div>
+											<div class="block-order__value value-total value-bg">
+												6 625 ₽
+											</div>
 										</li>
 									</ul>
 								</div>
-								<div class="block-account__body">
-									<div class="block-account__top">
-										<h1 class="title1">
-											Здравствуйте, Анна
-										</h1>
+								<div class="block-order__buttons">
+									<a href="./" class="btn">
+										<span>Оплатить заказ</span>
+										<svg aria-hidden="true" width="6" height="11">
+											<use xlink:href="img/sprite.svg#arrow1"></use>
+										</svg>
+									</a>
+									<div class="block-order__text">
+										Нажимая на кнопку, вы соглашаетесь с <a href="./">Политикой конфиденциальности</a>.
+										Чек будет
+										отправлен на вашу почту
 									</div>
-									<div class="account-home">
-										<div class="account-home__left">
-											<div class="account-home__column">
-												<div class="account-home__name">
-													Заказ №12345 от 10 октября
-												</div>
-												<div class="account-home__title">
-													В пути. Ожидается 14 октября
-												</div>
-												<div class="account-home__delivery">
-													<img src="img/icons/truck-delivery.svg" alt="">
-													<span>Доставка в ПВЗ Ozon</span>
-												</div>
-											</div>
-											<div class="account-home__column">
-												<div class="account-home__name">
-													Заказ №12345 от 08 октября
-												</div>
-												<div class="account-home__title">
-													В пути. Ожидается 22 октября
-												</div>
-												<div class="account-home__delivery">
-													<img src="img/icons/truck-delivery.svg" alt="">
-													<span>Доставка в ПВЗ Ozon</span>
-												</div>
-											</div>
-										</div>
-										<div class="account-home-sale">
-											<img src="img/card.webp" alt="" class="account-home-sale__pic1">
-											<div class="account-home-sale__item">
-												<div class="account-home-sale__title">
-													Ваша постоянная скидка:
-												</div>
-												<div class="account-home-sale__number">
-													<span>5%</span>
-												</div>
-												<a href="./" class="account-home-sale__link">
-													<span>Подробнее о программе лояльности</span>
-													<svg aria-hidden="true" width="6" height="11">
-														<use xlink:href="img/sprite.svg#arrow1"></use>
-													</svg>
-												</a>
-											</div>
-										</div>
-									</div>
+									<a href="./" class="btn btn-border-brown">
+										<span>Перейти в каталог</span>
+									</a>
 								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+
+				<div class="block-help">
+					<div class="container">
+						<div class="block-help__content">
+							<div class="heading-complex">
+								<h2 class="title2">
+									Возникли сложности с выбором размера или оформлением заказа?
+								</h2>
+								<p>
+									Напишите нам, мы на связи ежедневно <span class="sale-text">с 10:00 до 20:00</span>
+								</p>
+							</div>
+							<div class="block-help__buttons">
+								<a href="./" class="btn">
+									<span>Написать в Telegram</span>
+								</a>
+								<a href="./" class="btn btn-border-brown">
+									<span>Написать в MAX</span>
+								</a>
 							</div>
 						</div>
 					</div>

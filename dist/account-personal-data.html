@@ -2,7 +2,7 @@
 <html lang="ru">
 
 	<head>
-		<title>Личный кабинет - главная</title>
+		<title>Личный кабинет - личные данные</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -115,7 +115,7 @@
 								<div class="account-menu">
 									<ul>
 										<li>
-											<a href="./" class="active">
+											<a href="./">
 												<img src="img/icons/user1.svg" alt="">
 												<span>Главная</span>
 											</a>
@@ -139,7 +139,7 @@
 											</a>
 										</li>
 										<li>
-											<a href="./">
+											<a href="./" class="active">
 												<img src="img/icons/info.svg" alt="">
 												<span>Личные данные</span>
 											</a>
@@ -154,51 +154,133 @@
 								<div class="block-account__body">
 									<div class="block-account__top">
 										<h1 class="title1">
-											Здравствуйте, Анна
+											Личные данные
 										</h1>
 									</div>
-									<div class="account-home">
-										<div class="account-home__left">
-											<div class="account-home__column">
-												<div class="account-home__name">
-													Заказ №12345 от 10 октября
+									<div class="account-personal-data">
+										<div class="account-personal-data__forms">
+											<form action="#" data-dev data-popup-message="#thanks" class="form">
+												<div class="form__inputs">
+													<div class="form__input">
+														<img loading="lazy" src="img/icons/user1.svg" alt="">
+														<input data-required autocomplete="off" type="text" name="form[]" placeholder="Имя" class="input">
+													</div>
+													<div class="form__input">
+														<img loading="lazy" src="img/icons/user1.svg" alt="">
+														<input data-required autocomplete="off" type="text" name="form[]" placeholder="Фамилия" class="input">
+													</div>
+													<div class="form__input">
+														<img loading="lazy" src="img/icons/mail1.svg" alt="">
+														<input data-required autocomplete="off" type="text" name="form[]" placeholder="Электронная почта" class="input">
+													</div>
+													<div class="form__input">
+														<img loading="lazy" src="img/icons/phone.svg" alt="">
+														<input data-required autocomplete="off" type="text" name="form[]" placeholder="Телефон" class="input">
+													</div>
 												</div>
-												<div class="account-home__title">
-													В пути. Ожидается 14 октября
+												<div class="form__buttons">
+													<button type="submit" class="btn">
+														<span>Сохранить изменения</span>
+													</button>
 												</div>
-												<div class="account-home__delivery">
-													<img src="img/icons/truck-delivery.svg" alt="">
-													<span>Доставка в ПВЗ Ozon</span>
+											</form>
+										</div>
+										<div class="account-personal-data__address">
+											<h2 class="title2">
+												Мои адреса доставки
+											</h2>
+											<div class="account-personal-data__body">
+												<div class="account-personal-data__column">
+													<button type="button" class="account-personal-data__delete">
+														<svg aria-hidden="true" width="10" height="10">
+															<use xlink:href="img/sprite.svg#close"></use>
+														</svg>
+													</button>
+													<div class="account-personal-data__image">
+														<img loading="lazy" src="img/ozon1.webp" alt="">
+													</div>
+													<div class="account-personal-data__item">
+														<div class="account-personal-data__name">
+															ПВЗ Ozon
+														</div>
+														<div class="account-personal-data__text">
+															г. Москва, ул. Ленина, д. 45
+														</div>
+													</div>
 												</div>
-											</div>
-											<div class="account-home__column">
-												<div class="account-home__name">
-													Заказ №12345 от 08 октября
-												</div>
-												<div class="account-home__title">
-													В пути. Ожидается 22 октября
-												</div>
-												<div class="account-home__delivery">
-													<img src="img/icons/truck-delivery.svg" alt="">
-													<span>Доставка в ПВЗ Ozon</span>
-												</div>
+												<a href="./" class="account-personal-data__column">
+													<div class="account-personal-data__add">
+														<div class="account-personal-data__icon">
+															<span></span>
+														</div>
+														<p>
+															Добавить пункт выдачи
+														</p>
+													</div>
+												</a>
 											</div>
 										</div>
-										<div class="account-home-sale">
-											<img src="img/card.webp" alt="" class="account-home-sale__pic1">
-											<div class="account-home-sale__item">
-												<div class="account-home-sale__title">
-													Ваша постоянная скидка:
+										<div class="account-personal-data__forms">
+											<div class="account-personal-data__title">
+												Безопасность
+											</div>
+											<form action="#" data-dev data-popup-message="#thanks" class="form">
+												<div class="form__inputs">
+													<div class="form__input form-inputs-grid">
+														<img loading="lazy" src="img/icons/lock.svg" alt="">
+														<input data-required autocomplete="off" type="password" name="form[]" placeholder="Текущий пароль" class="input">
+														<button type="button" class="form__viewpass">
+															<img src="img/icons/eye1.svg" alt="" class="icon1">
+															<img src="img/icons/eye2.svg" alt="" class="icon2">
+														</button>
+													</div>
+													<div class="form__input">
+														<img loading="lazy" src="img/icons/lock.svg" alt="">
+														<input data-required autocomplete="off" type="password" name="form[]" placeholder="Новый пароль" class="input">
+														<button type="button" class="form__viewpass">
+															<img src="img/icons/eye1.svg" alt="" class="icon1">
+															<img src="img/icons/eye2.svg" alt="" class="icon2">
+														</button>
+													</div>
+													<div class="form__input">
+														<img loading="lazy" src="img/icons/lock.svg" alt="">
+														<input data-required autocomplete="off" type="password" name="form[]" placeholder="Повторите новый пароль" class="input">
+														<button type="button" class="form__viewpass">
+															<img src="img/icons/eye1.svg" alt="" class="icon1">
+															<img src="img/icons/eye2.svg" alt="" class="icon2">
+														</button>
+													</div>
 												</div>
-												<div class="account-home-sale__number">
-													<span>5%</span>
+												<div class="form__buttons">
+													<button type="submit" class="btn">
+														<span>Обновить пароль</span>
+													</button>
 												</div>
-												<a href="./" class="account-home-sale__link">
-													<span>Подробнее о программе лояльности</span>
-													<svg aria-hidden="true" width="6" height="11">
-														<use xlink:href="img/sprite.svg#arrow1"></use>
-													</svg>
-												</a>
+											</form>
+										</div>
+										<div class="account-personal-data__forms">
+											<div class="account-personal-data__title">
+												Настройки уведомлений
+											</div>
+											<div class="checkbox">
+												<label class="checkbox__item">
+													<input checked hidden class="checkbox__input" type="checkbox" value="1" name="checkbox1">
+													<span class="checkbox__label">
+														<span class="checkbox__icon"></span>
+														<span data-text="Присылать мне информацию о статусе заказов на электронную почту" class="checkbox__text">
+															Присылать мне информацию о статусе заказов на электронную почту
+														</span>
+													</span>
+												</label>
+												<label class="checkbox__item">
+													<input hidden class="checkbox__input" type="checkbox" value="2" name="checkbox1">
+													<span class="checkbox__label">
+														<span class="checkbox__icon"></span>
+														<span data-text="Я хочу первой узнавать о новых коллекциях и закрытых распродажах" class="checkbox__text">
+															Я хочу первой узнавать о новых коллекциях и закрытых распродажах
+														</span>
+													</span>
+												</label>
 											</div>
 										</div>
 									</div>
