@@ -167,6 +167,31 @@ if (favoritesElements) {
 
 //========================================================================================================================================================
 
+const searchButton = document.querySelector('.header-search-button');
+
+if (searchButton) {
+  const headerSearch = document.querySelector('.header-search');
+  const searchClose = document.querySelector('.header-search__close');
+  searchButton.addEventListener('click', function (e) {
+    e.stopPropagation();
+    document.documentElement.classList.add('search-open');
+  });
+
+  document.addEventListener('click', function (e) {
+    if (!headerSearch.contains(e.target) && !searchButton.contains(e.target)) {
+      document.documentElement.classList.remove('search-open');
+    }
+  });
+
+  if (searchClose) {
+    searchClose.addEventListener('click', function () {
+      document.documentElement.classList.remove('search-open');
+    });
+  }
+}
+
+//========================================================================================================================================================
+
 document.querySelectorAll('.block-section__slider').forEach((sliderEl) => {
   const container = sliderEl.closest('.block-section__body') || sliderEl.parentElement;
 
@@ -1244,6 +1269,9 @@ function spollers() {
           spollerTitle.classList.remove('_spoller-active');
           spollerItem.classList.remove('_spoller-active');
 
+          const cardBuy = spollerTitle.closest('.card-buy');
+          if (cardBuy) cardBuy.classList.remove('_spoller-active');
+
           const contentBlock = spollerTitle.nextElementSibling;
           _slideUp(contentBlock, spollerSpeed);
         }
@@ -1275,6 +1303,11 @@ function spollers() {
         spollerTitle.classList.toggle("_spoller-active");
         if (spollerItem) spollerItem.classList.toggle("_spoller-active");
 
+        const cardBuy = spollerTitle.closest(".card-buy");
+        if (cardBuy) {
+          cardBuy.classList.toggle("_spoller-active", spollerTitle.classList.contains("_spoller-active"));
+        }
+
         const contentBlock = spollerTitle.nextElementSibling;
         if (contentBlock) {
           _slideToggle(contentBlock, spollerSpeed);
@@ -1292,6 +1325,10 @@ function spollers() {
 
         spollerActiveTitle.classList.remove("_spoller-active");
         if (spollerItem) spollerItem.classList.remove("_spoller-active");
+
+        const cardBuy = spollerActiveTitle.closest(".card-buy");
+        if (cardBuy) cardBuy.classList.remove("_spoller-active");
+
         _slideUp(spollerActiveTitle.nextElementSibling, spollerSpeed);
       }
     }
@@ -1308,6 +1345,9 @@ function spollers() {
 
             const spollerItem = spollerClose.parentElement;
             if (spollerItem) spollerItem.classList.remove("_spoller-active");
+
+            const cardBuy = spollerClose.closest(".card-buy");
+            if (cardBuy) cardBuy.classList.remove("_spoller-active");
 
             _slideUp(spollerClose.nextElementSibling, spollerSpeed);
           }));
@@ -1516,6 +1556,108 @@ if (blockSearch) {
 
 //========================================================================================================================================================
 
+const radios = document.querySelectorAll('.checkbox-map');
+
+if (radios) {
+  function updateMaps() {
+    document.querySelectorAll('.block-order__map').forEach(map => {
+      map.style.display = 'none';
+    });
+    document.querySelectorAll('.block-order__option').forEach(opt => {
+      opt.classList.remove('is-active');
+    });
+
+    const checked = document.querySelector('.checkbox-map:checked');
+    if (!checked) return;
+
+    const option = checked.closest('.block-order__option');
+    if (!option) return;
+
+    const map = option.querySelector('.block-order__map');
+    if (map) {
+      map.style.display = 'block';
+    }
+    option.classList.add('is-active');
+  }
+
+  radios.forEach(radio => {
+    radio.addEventListener('change', updateMaps);
+  });
+
+  updateMaps();
+}
+
+//========================================================================================================================================================
+
+//Количество
+function formQuantity() {
+  document.addEventListener("click", function (e) {
+    let targetElement = e.target;
+    if (targetElement.closest('[data-quantity-plus]') || targetElement.closest('[data-quantity-minus]')) {
+      const quantityElement = targetElement.closest('[data-quantity]');
+      const valueElement = quantityElement.querySelector('input[type="text"]');
+      let value = parseInt(valueElement.value) || 0;
+
+      if (targetElement.closest('[data-quantity-plus]')) {
+        value++;
+        if (quantityElement.dataset.quantityMax && +quantityElement.dataset.quantityMax < value) {
+          value = quantityElement.dataset.quantityMax;
+        }
+      } else {
+        value--;
+        if (quantityElement.dataset.quantityMin) {
+          if (+quantityElement.dataset.quantityMin > value) {
+            value = quantityElement.dataset.quantityMin;
+          }
+        } else if (value < 1) {
+          value = 1;
+        }
+      }
+      valueElement.value = value;
+    }
+  });
+}
+formQuantity();
+
+//========================================================================================================================================================
+
+let buttonCopy = document.querySelectorAll('.card-buy__number-copy');
+
+if (buttonCopy) {
+  buttonCopy.forEach(button => {
+    button.addEventListener('click', function () {
+      const trackBlock = this.closest('.card-buy__track-number');
+      const textElement = trackBlock.querySelector('.card-buy__copy-text');
+      const text = textElement.textContent.trim();
+
+      copyToClipboard(text, this, textElement);
+    });
+  });
+
+  function copyToClipboard(text, button, textElement) {
+    navigator.clipboard.writeText(text)
+      .then(() => {
+        button.classList.add('copied');
+
+        textElement.classList.add('copied-highlight');
+        const selection = window.getSelection();
+        const range = document.createRange();
+        range.selectNodeContents(textElement);
+        selection.removeAllRanges();
+        selection.addRange(range);
+
+        setTimeout(() => {
+          button.classList.remove('copied');
+          textElement.classList.remove('copied-highlight');
+          selection.removeAllRanges();
+        }, 1500);
+      })
+      .catch(err => console.error('Ошибка:', err));
+  }
+}
+
+//========================================================================================================================================================
+
 //Яндекс карта
 const map1 = document.querySelector('#map1');
 
@@ -1532,500 +1674,170 @@ if (map1) {
       searchControlProvider: 'yandex#search'
     });
 
-    function createOzonPlacemark(coords, text, imageUrl = null) {
+    function createOzonPlacemark(coords, data) {
+      const inner = data.img
+        ? `<img src="${data.img}" class="ozon-img" alt="icon">`
+        : `<div class="ozon-text">${data.text}</div>`;
 
-      let contentHtml = imageUrl
-        ? `<img src="${imageUrl}" class="ozon-img" alt="icon">`
-        : `<div class="ozon-text">${text}</div>`;
-
-      return new ymaps.Placemark(coords, {
-        hintContent: text,
-        balloonContent: text
+      const placemark = new ymaps.Placemark(coords, {
+        hintContent: data.text,
+        balloonData: {
+          title: data.title,
+          address: data.address,
+          term: data.term,
+          price: data.price
+        }
       }, {
         iconLayout: 'default#imageWithContent',
-        iconImageHref: 'img/ozon1.webp',
         iconImageSize: [70, 70],
         iconImageOffset: [-35, -35],
-        iconContentLayout: ymaps.templateLayoutFactory.createClass(contentHtml)
+        hideIconOnBalloonOpen: false,
+        iconImageHref: '',
+        iconContentLayout: ymaps.templateLayoutFactory.createClass(
+          `<div class="ozon-placemark">${inner}</div>`
+        ),
+        balloonContentLayout: ymaps.templateLayoutFactory.createClass(`
+          <div class="map__content">
+            <div class="map__body">
+              <div class="map__titles">
+                <div class="map__title">{{ properties.balloonData.title }}</div>
+                <p>{{ properties.balloonData.address }}</p>
+              </div>
+              <div class="map__bottom">
+                <div class="map__text">
+                  <span>Срок:</span> {{ properties.balloonData.term }}
+                </div>
+                <div class="map__text">
+                  <span>Стоимость:</span> {{ properties.balloonData.price }}
+                </div>
+              </div>
+            </div>
+            <a href="./" class="btn">
+              <span>Выбрать этот пункт</span>
+              <svg aria-hidden="true" width="6" height="11">
+                <use xlink:href="img/sprite.svg#arrow1"></use>
+              </svg>
+            </a>
+          </div>
+        `)
       });
+
+      placemark.events.add(['balloonopen', 'balloonclose'], function (e) {
+        const target = e.get('target');
+        const type = e.get('type');
+        const overlay = target.getOverlaySync && target.getOverlaySync();
+        if (!overlay) return;
+        const element = overlay.getElement && overlay.getElement();
+        if (!element) return;
+
+        const placesPane = document.querySelector('.ymaps-2-1-79-places-pane');
+        const balloonPane = document.querySelector('.ymaps-2-1-79-balloon-pane');
+
+        if (type === 'balloonopen') {
+          // Снимаем активность со всех плейсмарков и опускаем их z-index
+          document
+            .querySelectorAll('.ymaps-2-1-79-placemark-overlay')
+            .forEach(el => {
+              el.classList.remove('is-active');
+              el.style.zIndex = '650';
+            });
+
+          // Текущий плейсмарк — активный и самый высокий внутри своего pane
+          element.classList.add('is-active');
+          element.style.zIndex = '900';
+
+          // Поднимаем весь слой плейсмарков выше слоя балунов
+          if (placesPane) {
+            placesPane.dataset.prevZIndex = placesPane.style.zIndex || '';
+            placesPane.style.zIndex = '5000';
+          }
+          if (balloonPane) {
+            balloonPane.dataset.prevZIndex = balloonPane.style.zIndex || '';
+            balloonPane.style.zIndex = '4205';
+          }
+        } else {
+          element.classList.remove('is-active');
+          element.style.zIndex = '';
+
+          // Возвращаем исходные z-index слоям
+          if (placesPane) {
+            if (placesPane.dataset.prevZIndex !== undefined) {
+              placesPane.style.zIndex = placesPane.dataset.prevZIndex;
+              delete placesPane.dataset.prevZIndex;
+            } else {
+              placesPane.style.zIndex = '';
+            }
+          }
+          if (balloonPane) {
+            if (balloonPane.dataset.prevZIndex !== undefined) {
+              balloonPane.style.zIndex = balloonPane.dataset.prevZIndex;
+              delete balloonPane.dataset.prevZIndex;
+            } else {
+              balloonPane.style.zIndex = '';
+            }
+          }
+        }
+      });
+
+      return placemark;
     }
 
     const places = [
-      { coords: [43.181311, 76.810044], text: 'OZON', img: 'img/ozon1.webp' },
-      { coords: [43.182500, 76.812000], text: 'OZON', img: 'img/ozon1.webp' },
-      { coords: [43.180000, 76.808000], text: 'OZON', img: 'img/ozon1.webp' },
-      { coords: [43.183000, 76.809000], text: 'OZON', img: 'img/ozon1.webp' }
+      {
+        coords: [43.181311, 76.810044],
+        text: 'OZON', img: 'img/ozon1.webp',
+        title: 'ПВЗ Ozon',
+        address: 'ул. Ленина, 45',
+        term: '2 дня',
+        price: '250 ₽'
+      },
+      {
+        coords: [43.182500, 76.812000],
+        text: 'OZON', img: 'img/ozon1.webp',
+        title: 'ПВЗ Ozon',
+        address: 'ул. Абая, 12',
+        term: '1 день',
+        price: '199 ₽'
+      },
+      {
+        coords: [43.180000, 76.808000],
+        text: 'OZON', img: 'img/ozon1.webp',
+        title: 'ПВЗ Ozon',
+        address: 'пр. Достык, 100',
+        term: '3 дня',
+        price: '300 ₽'
+      },
+      {
+        coords: [43.183000, 76.809000],
+        text: 'OZON', img: 'img/ozon1.webp',
+        title: 'ПВЗ Ozon',
+        address: 'ул. Сатпаева, 8',
+        term: '2 дня',
+        price: '250 ₽'
+      }
     ];
 
     places.forEach(place => {
-      const placemark = createOzonPlacemark(place.coords, place.text, place.img);
-      myMap.geoObjects.add(placemark);
+      myMap.geoObjects.add(createOzonPlacemark(place.coords, place));
     });
 
-  }
-}
-
-//========================================================================================================================================================
-/*
-if (document.querySelector('.block-teams__slider')) {
-  const teamsSwiper = new Swiper('.block-teams__slider', {
-    observer: true,
-    observeParents: true,
-    slidesPerView: 1,
-    spaceBetween: 10,
-    speed: 400,
-    preloadImages: true,
-    navigation: {
-      prevEl: '.block-teams__arrow-prev',
-      nextEl: '.block-teams__arrow-next',
-    },
-    breakpoints: {
-      450: {
-        slidesPerView: 2,
-        spaceBetween: 10,
-      },
-      800: {
-        slidesPerView: 3,
-        spaceBetween: 20,
-      },
-      1100: {
-        slidesPerView: 4,
-        spaceBetween: 30,
-      },
-    },
-  });
-}
-
-if (document.querySelector('.images-product')) {
-  const thumbsSwiper = new Swiper('.images-product__thumb', {
-    observer: true,
-    observeParents: true,
-    slidesPerView: 2.5,
-    spaceBetween: 10,
-    speed: 400,
-    preloadImages: true,
-    breakpoints: {
-      550: {
-        slidesPerView: 4, spaceBetween: 10,
-      },
-      768: {
-        slidesPerView: 5, spaceBetween: 15,
-      },
-    },
-  });
-
-  const mainThumbsSwiper = new Swiper('.images-product__slider', {
-    thumbs: {
-      swiper: thumbsSwiper
-    },
-    observer: true,
-    observeParents: true,
-    slidesPerView: 1,
-    spaceBetween: 20,
-    speed: 400,
-    preloadImages: true,
-    navigation: {
-      prevEl: '.images-product__arrow-prev',
-      nextEl: '.images-product__arrow-next',
-    },
-  });
-}
-
-//========================================================================================================================================================
-
-//Табы
-function tabs() {
-  const tabs = document.querySelectorAll('[data-tabs]');
-  let tabsActiveHash = [];
-
-  if (tabs.length > 0) {
-    const hash = getHash();
-    if (hash && hash.startsWith('tab-')) {
-      tabsActiveHash = hash.replace('tab-', '').split('-');
-    }
-    tabs.forEach((tabsBlock, index) => {
-      tabsBlock.classList.add('_tab-init');
-      tabsBlock.setAttribute('data-tabs-index', index);
-      tabsBlock.addEventListener("click", setTabsAction);
-      initTabs(tabsBlock);
+    myMap.events.add('click', function () {
+      myMap.balloon.close();
     });
 
-    let mdQueriesArray = dataMediaQueries(tabs, "tabs");
-    if (mdQueriesArray && mdQueriesArray.length) {
-      mdQueriesArray.forEach(mdQueriesItem => {
-        mdQueriesItem.matchMedia.addEventListener("change", function () {
-          setTitlePosition(mdQueriesItem.itemsArray, mdQueriesItem.matchMedia);
-        });
-        setTitlePosition(mdQueriesItem.itemsArray, mdQueriesItem.matchMedia);
-      });
-    }
-  }
+    myMap.balloon.events.add('open', function () {
+      const balloonEl = document.querySelector('.ymaps-2-1-79-balloon');
+      if (!balloonEl) return;
+      if (balloonEl.dataset.btnBound === '1') return;
+      balloonEl.dataset.btnBound = '1';
 
-  function setTitlePosition(tabsMediaArray, matchMedia) {
-    tabsMediaArray.forEach(tabsMediaItem => {
-      tabsMediaItem = tabsMediaItem.item;
-      let tabsTitles = tabsMediaItem.querySelector('[data-tabs-titles]');
-      let tabsTitleItems = tabsMediaItem.querySelectorAll('[data-tabs-title]');
-      let tabsContent = tabsMediaItem.querySelector('[data-tabs-body]');
-      let tabsContentItems = tabsMediaItem.querySelectorAll('[data-tabs-item]');
-      tabsTitleItems = Array.from(tabsTitleItems).filter(item => item.closest('[data-tabs]') === tabsMediaItem);
-      tabsContentItems = Array.from(tabsContentItems).filter(item => item.closest('[data-tabs]') === tabsMediaItem);
-      tabsContentItems.forEach((tabsContentItem, index) => {
-        if (matchMedia.matches) {
-          tabsContent.append(tabsTitleItems[index]);
-          tabsContent.append(tabsContentItem);
-          tabsMediaItem.classList.add('_tab-spoller');
-        } else {
-          tabsTitles.append(tabsTitleItems[index]);
-          tabsMediaItem.classList.remove('_tab-spoller');
-        }
-      });
-    });
-  }
-
-  function initTabs(tabsBlock) {
-    let tabsTitles = tabsBlock.querySelectorAll('[data-tabs-titles]>*');
-    let tabsContent = tabsBlock.querySelectorAll('[data-tabs-body]>*');
-    const tabsBlockIndex = tabsBlock.dataset.tabsIndex;
-    const tabsActiveHashBlock = tabsActiveHash[0] == tabsBlockIndex;
-
-    if (tabsActiveHashBlock) {
-      const tabsActiveTitle = tabsBlock.querySelector('[data-tabs-titles]>._tab-active');
-      tabsActiveTitle ? tabsActiveTitle.classList.remove('_tab-active') : null;
-    }
-    if (tabsContent.length) {
-      tabsContent.forEach((tabsContentItem, index) => {
-        tabsTitles[index].setAttribute('data-tabs-title', '');
-        tabsContentItem.setAttribute('data-tabs-item', '');
-
-        if (tabsActiveHashBlock && index == tabsActiveHash[1]) {
-          tabsTitles[index].classList.add('_tab-active');
-        }
-        tabsContentItem.hidden = !tabsTitles[index].classList.contains('_tab-active');
-      });
-    }
-    setTabsStatus(tabsBlock);
-  }
-
-  function setTabsStatus(tabsBlock) {
-    let tabsTitles = tabsBlock.querySelectorAll('[data-tabs-title]');
-    let tabsContent = tabsBlock.querySelectorAll('[data-tabs-item]');
-    const tabsBlockIndex = tabsBlock.dataset.tabsIndex;
-
-    function isTabsAnimate(tabsBlock) {
-      if (tabsBlock.hasAttribute('data-tabs-animate')) {
-        return tabsBlock.dataset.tabsAnimate > 0 ? Number(tabsBlock.dataset.tabsAnimate) : 500;
-      }
-      return false;
-    }
-    const tabsBlockAnimate = isTabsAnimate(tabsBlock);
-
-    if (tabsContent.length > 0) {
-      const isHash = tabsBlock.hasAttribute('data-tabs-hash');
-      tabsContent = Array.from(tabsContent).filter(item => item.closest('[data-tabs]') === tabsBlock);
-      tabsTitles = Array.from(tabsTitles).filter(item => item.closest('[data-tabs]') === tabsBlock);
-      tabsContent.forEach((tabsContentItem, index) => {
-        if (tabsTitles[index].classList.contains('_tab-active')) {
-          if (tabsBlockAnimate) {
-            _slideDown(tabsContentItem, tabsBlockAnimate);
-          } else {
-            tabsContentItem.hidden = false;
-          }
-          if (isHash && !tabsContentItem.closest('.popup')) {
-            setHash(`tab-${tabsBlockIndex}-${index}`);
-          }
-        } else {
-          if (tabsBlockAnimate) {
-            _slideUp(tabsContentItem, tabsBlockAnimate);
-          } else {
-            tabsContentItem.hidden = true;
-          }
-        }
-      });
-    }
-  }
-
-  function setTabsAction(e) {
-    const el = e.target;
-    if (el.closest('[data-tabs-title]')) {
-      const tabTitle = el.closest('[data-tabs-title]');
-      const tabsBlock = tabTitle.closest('[data-tabs]');
-      if (!tabTitle.classList.contains('_tab-active') && !tabsBlock.querySelector('._slide')) {
-        let tabActiveTitle = tabsBlock.querySelectorAll('[data-tabs-title]._tab-active');
-        tabActiveTitle = Array.from(tabActiveTitle).filter(item => item.closest('[data-tabs]') === tabsBlock);
-        if (tabActiveTitle.length) tabActiveTitle[0].classList.remove('_tab-active');
-        tabTitle.classList.add('_tab-active');
-        setTabsStatus(tabsBlock);
-      }
-      e.preventDefault();
-    }
-  }
-}
-tabs();
-
-//========================================================================================================================================================
-
-
-
-//========================================================================================================================================================
-
-//Наблюдатель
-class ScrollWatcher {
-  constructor(props) {
-    let defaultConfig = {
-      logging: true,
-    }
-    this.config = Object.assign(defaultConfig, props);
-    this.observer;
-    !document.documentElement.classList.contains('watcher') ? this.scrollWatcherRun() : null;
-  }
-  scrollWatcherUpdate() {
-    this.scrollWatcherRun();
-  }
-  scrollWatcherRun() {
-    document.documentElement.classList.add('watcher');
-    this.scrollWatcherConstructor(document.querySelectorAll('[data-watch]'));
-  }
-  scrollWatcherConstructor(items) {
-    if (items.length) {
-      let uniqParams = uniqArray(Array.from(items).map(function (item) {
-        if (item.dataset.watch === 'navigator' && !item.dataset.watchThreshold) {
-          let valueOfThreshold;
-          if (item.clientHeight > 2) {
-            valueOfThreshold =
-              window.innerHeight / 2 / (item.clientHeight - 1);
-            if (valueOfThreshold > 1) {
-              valueOfThreshold = 1;
-            }
-          } else {
-            valueOfThreshold = 1;
-          }
-          item.setAttribute(
-            'data-watch-threshold',
-            valueOfThreshold.toFixed(2)
-          );
-        }
-        return `${item.dataset.watchRoot ? item.dataset.watchRoot : null}|${item.dataset.watchMargin ? item.dataset.watchMargin : '0px'}|${item.dataset.watchThreshold ? item.dataset.watchThreshold : 0}`;
-      }));
-      uniqParams.forEach(uniqParam => {
-        let uniqParamArray = uniqParam.split('|');
-        let paramsWatch = {
-          root: uniqParamArray[0],
-          margin: uniqParamArray[1],
-          threshold: uniqParamArray[2]
-        }
-        let groupItems = Array.from(items).filter(function (item) {
-          let watchRoot = item.dataset.watchRoot ? item.dataset.watchRoot : null;
-          let watchMargin = item.dataset.watchMargin ? item.dataset.watchMargin : '0px';
-          let watchThreshold = item.dataset.watchThreshold ? item.dataset.watchThreshold : 0;
-          if (
-            String(watchRoot) === paramsWatch.root &&
-            String(watchMargin) === paramsWatch.margin &&
-            String(watchThreshold) === paramsWatch.threshold
-          ) {
-            return item;
-          }
-        });
-
-        let configWatcher = this.getScrollWatcherConfig(paramsWatch);
-
-        this.scrollWatcherInit(groupItems, configWatcher);
-      });
-    }
-  }
-  getScrollWatcherConfig(paramsWatch) {
-    let configWatcher = {}
-    if (document.querySelector(paramsWatch.root)) {
-      configWatcher.root = document.querySelector(paramsWatch.root);
-    }
-    configWatcher.rootMargin = paramsWatch.margin;
-    if (paramsWatch.margin.indexOf('px') < 0 && paramsWatch.margin.indexOf('%') < 0) {
-      return
-    }
-    if (paramsWatch.threshold === 'prx') {
-      paramsWatch.threshold = [];
-      for (let i = 0; i <= 1.0; i += 0.005) {
-        paramsWatch.threshold.push(i);
-      }
-    } else {
-      paramsWatch.threshold = paramsWatch.threshold.split(',');
-    }
-    configWatcher.threshold = paramsWatch.threshold;
-
-    return configWatcher;
-  }
-  scrollWatcherCreate(configWatcher) {
-    console.log(configWatcher);
-    this.observer = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        this.scrollWatcherCallback(entry, observer);
-      });
-    }, configWatcher);
-  }
-  scrollWatcherInit(items, configWatcher) {
-    this.scrollWatcherCreate(configWatcher);
-    items.forEach(item => this.observer.observe(item));
-  }
-  scrollWatcherIntersecting(entry, targetElement) {
-    if (entry.isIntersecting) {
-      !targetElement.classList.contains('_watcher-view') ? targetElement.classList.add('_watcher-view') : null;
-    } else {
-      targetElement.classList.contains('_watcher-view') ? targetElement.classList.remove('_watcher-view') : null;
-    }
-  }
-  scrollWatcherOff(targetElement, observer) {
-    observer.unobserve(targetElement);
-  }
-  scrollWatcherCallback(entry, observer) {
-    const targetElement = entry.target;
-    this.scrollWatcherIntersecting(entry, targetElement);
-    targetElement.hasAttribute('data-watch-once') && entry.isIntersecting ? this.scrollWatcherOff(targetElement, observer) : null;
-    document.dispatchEvent(new CustomEvent("watcherCallback", {
-      detail: {
-        entry: entry
-      }
-    }));
-  }
-}
-modules_flsModules.watcher = new ScrollWatcher({});
-
-//========================================================================================================================================================
-
-//Прокрутка к блоку
-let gotoBlock = (targetBlock, noHeader = false, speed = 500, offsetTop = 0) => {
-  const targetBlockElement = document.querySelector(targetBlock);
-
-  if (!targetBlockElement) {
-    console.warn(`Element ${targetBlock} not found`);
-    return;
-  }
-
-  let headerItem = '';
-  let headerItemHeight = 0;
-
-  if (noHeader) {
-    headerItem = 'header.header';
-    const headerElement = document.querySelector(headerItem);
-    if (headerElement) {
-      if (!headerElement.classList.contains('_header-scroll')) {
-        headerElement.style.cssText = `transition-duration: 0s;`;
-        headerElement.classList.add('_header-scroll');
-        headerItemHeight = headerElement.offsetHeight;
-        headerElement.classList.remove('_header-scroll');
-        setTimeout(() => {
-          headerElement.style.cssText = ``;
-        }, 0);
-      } else {
-        headerItemHeight = headerElement.offsetHeight;
-      }
-    }
-  }
-
-  if (document.documentElement.classList.contains("menu-open")) {
-    if (typeof menuClose === 'function') {
-      menuClose();
-    }
-  }
-
-  if (typeof SmoothScroll !== 'undefined') {
-    let options = {
-      speedAsDuration: true,
-      speed: speed,
-      header: headerItem,
-      offset: offsetTop,
-      easing: 'easeOutQuad',
-    };
-    new SmoothScroll().animateScroll(targetBlockElement, '', options);
-  } else {
-    let targetBlockElementPosition = targetBlockElement.getBoundingClientRect().top + window.scrollY;
-
-    if (headerItemHeight) {
-      targetBlockElementPosition -= headerItemHeight;
-    }
-
-    if (offsetTop) {
-      targetBlockElementPosition -= offsetTop;
-    }
-
-    window.scrollTo({
-      top: targetBlockElementPosition,
-      behavior: "smooth"
-    });
-  }
-};
-function pageNavigation() {
-  document.addEventListener("click", pageNavigationAction);
-  document.addEventListener("watcherCallback", pageNavigationAction);
-
-  function pageNavigationAction(e) {
-    if (e.type === "click") {
-      const targetElement = e.target;
-      const gotoLink = targetElement.closest('[data-goto]');
-
-      if (gotoLink) {
-        const gotoLinkSelector = gotoLink.dataset.goto || '';
-        const noHeader = gotoLink.hasAttribute('data-goto-header');
-        const gotoSpeed = gotoLink.dataset.gotoSpeed ? parseInt(gotoLink.dataset.gotoSpeed) : 500;
-        const offsetTop = gotoLink.dataset.gotoTop ? parseInt(gotoLink.dataset.gotoTop) : 0;
-
-        if (window.modules_flsModules && modules_flsModules.fullpage) {
-          const fullpageSection = document.querySelector(`${gotoLinkSelector}`)?.closest('[data-fp-section]');
-          const fullpageSectionId = fullpageSection ? +fullpageSection.dataset.fpId : null;
-
-          if (fullpageSectionId !== null) {
-            modules_flsModules.fullpage.switchingSection(fullpageSectionId);
-            if (document.documentElement.classList.contains("menu-open") && typeof menuClose === 'function') {
-              menuClose();
-            }
-          }
-        } else {
-          gotoBlock(gotoLinkSelector, noHeader, gotoSpeed, offsetTop);
-        }
-
+      balloonEl.addEventListener('click', function (e) {
+        const btn = e.target.closest('.btn');
+        if (!btn) return;
         e.preventDefault();
-      }
-    } else if (e.type === "watcherCallback" && e.detail) {
-      const entry = e.detail.entry;
-      const targetElement = entry.target;
-
-      if (targetElement.dataset.watch === 'navigator') {
-        document.querySelectorAll('[data-goto]._navigator-active').forEach(el => {
-          el.classList.remove('_navigator-active');
-        });
-
-        const navigatorLinks = findNavigatorLinks(targetElement);
-        navigatorLinks.forEach(link => {
-          if (entry.isIntersecting) {
-            link.classList.add('_navigator-active');
-          } else {
-            link.classList.remove('_navigator-active');
-          }
-        });
-      }
-    }
-  }
-
-  function findNavigatorLinks(element) {
-    const links = [];
-
-    if (element.id) {
-      const idLinks = document.querySelectorAll(`[data-goto="#${element.id}"]`);
-      links.push(...idLinks);
-    }
-
-    if (element.classList.length) {
-      element.classList.forEach(className => {
-        const classLinks = document.querySelectorAll(`[data-goto=".${className}"]`);
-        links.push(...classLinks);
+        myMap.balloon.close();
       });
-    }
-
-    return links;
+    });
   }
 }
-pageNavigation();
 
-//========================================================================================================================================================
-
-
-*/
