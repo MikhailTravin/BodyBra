@@ -11,6 +11,8 @@
         {% include 'blocks/header.njk' %}
         <main class="main">
 
+            {% include 'blocks/header-search.njk' %}
+
             <div class="block-main">
                 <div class="container">
                     <div class="block-main__content">
@@ -37,8 +39,8 @@
                             <div class="block-search">
                                 <div class="block-search__input">
                                     <img src="img/icons/search.svg" alt="">
-                                    <input autocomplete="off" type="text" name="form[]"
-                                        placeholder="Поиск" value="Бюстгальтер бесшовный">
+                                    <input autocomplete="off" type="text" name="form[]" placeholder="Поиск"
+                                        value="Бюстгальтер бесшовный">
                                     <button type="button" class="block-search__delete active">
                                         <svg aria-hidden="true" width="10" height="10">
                                             <use xlink:href="img/sprite.svg#close"></use>

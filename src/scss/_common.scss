@@ -20,6 +20,9 @@ body {
   .filter-open & {
     overflow: hidden;
   }
+  .search-open & {
+    overflow: hidden;
+  }
   .catalog-open & {
     @media (max-width: 992px) {
       overflow: hidden;
@@ -86,6 +89,23 @@ a {
       opacity: 1;
       border: 1px solid transparent;
       background-color: var(--c2a18c);
+    }
+  }
+  &.btn-beige {
+    background-color: var(--f8f1ed);
+    span {
+      background: linear-gradient(
+        105.85deg,
+        #c2a18c -33.86%,
+        #bd9b86 -3.75%,
+        #b4927b 20.41%,
+        #ad8977 49.95%,
+        #684a59 85.39%,
+        #53364b 137.59%
+      );
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
   }
   &.btn-border-gold {

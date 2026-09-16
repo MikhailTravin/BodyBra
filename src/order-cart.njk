@@ -11,6 +11,8 @@
         {% include 'blocks/header.njk' %}
         <main class="main">
 
+            {% include 'blocks/header-search.njk' %}
+
             <div class="block-main block-main-order">
                 <div class="container">
                     <div class="block-main__content">
@@ -53,10 +55,137 @@
             <div class="block-order">
                 <div class="container">
                     <div class="block-order__content">
+                        <div class="block-order-cart">
+                            <div class="block-order-cart__top">
+                                <div class="block-order-cart__item">
+                                    Товар
+                                </div>
+                                <div class="block-order-cart__item">
+                                    Кол-во
+                                </div>
+                                <div class="block-order-cart__item">
+                                    Стоимость
+                                </div>
+                                <div class="block-order-cart__item">
+                                    Удалить
+                                </div>
+                            </div>
+                            <div class="block-order-cart__cards">
+                                <div class="card-cart">
+                                    <div class="card-cart__left">
+                                        <a href="./" class="card-cart__pic1">
+                                            <img loading="lazy" src="img/products/image4.webp" alt="">
+                                        </a>
+                                        <div class="card-cart__item">
+                                            <a href="./" class="card-cart__name">
+                                                Бюстгальтер без косточек бесшовный гладкий
+                                            </a>
+                                            <ul>
+                                                <li>
+                                                    <span>Цвет:</span> Пудровый
+                                                </li>
+                                                <li>
+                                                    <span>Размер:</span> 75 В
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="card-cart__right">
+                                        <div class="card-cart__quantity">
+                                            <div data-quantity class="quantity">
+                                                <button data-quantity-minus type="button"
+                                                    class="quantity__button quantity__button_minus">
+                                                    <span></span>
+                                                </button>
+                                                <div class="quantity__input">
+                                                    <input data-quantity-value autocomplete="off" type="text"
+                                                        name="form[]" value="1">
+                                                </div>
+                                                <button data-quantity-plus type="button"
+                                                    class="quantity__button quantity__button_plus">
+                                                    <span></span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="card-cart__prices">
+                                            <div class="card-cart__new-price">
+                                                2 490 ₽
+                                            </div>
+                                            <div class="card-cart__old-price">
+                                                4 500 ₽
+                                            </div>
+                                        </div>
+                                        <div class="card-cart__delete">
+                                            <button type="button">
+                                                <img src="img/icons/close-fill.svg" alt="">
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-cart">
+                                    <div class="card-cart__left">
+                                        <a href="./" class="card-cart__pic1">
+                                            <img loading="lazy" src="img/products/image3.webp" alt="">
+                                        </a>
+                                        <div class="card-cart__item">
+                                            <a href="./" class="card-cart__name">
+                                                Бюстгальтер без косточек бесшовный гладкий
+                                            </a>
+                                            <ul>
+                                                <li>
+                                                    <span>Цвет:</span> Пудровый
+                                                </li>
+                                                <li>
+                                                    <span>Размер:</span> 75 В
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="card-cart__right">
+                                        <div class="card-cart__quantity">
+                                            <div data-quantity class="quantity">
+                                                <button data-quantity-minus type="button"
+                                                    class="quantity__button quantity__button_minus">
+                                                    <span></span>
+                                                </button>
+                                                <div class="quantity__input">
+                                                    <input data-quantity-value autocomplete="off" type="text"
+                                                        name="form[]" value="1">
+                                                </div>
+                                                <button data-quantity-plus type="button"
+                                                    class="quantity__button quantity__button_plus">
+                                                    <span></span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="card-cart__prices">
+                                            <div class="card-cart__new-price">
+                                                6 490 ₽
+                                            </div>
+                                            <div class="card-cart__old-price">
+                                                6 500 ₽
+                                            </div>
+                                        </div>
+                                        <div class="card-cart__delete">
+                                            <button type="button">
+                                                <img src="img/icons/close-fill.svg" alt="">
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <div class="block-order__buttons">
-                            <a href="./" class="btn btn-border-brown">
-                                <span>Назад</span>
-                            </a>
+                            <form action="#" class="form">
+                                <div class="form__input">
+                                    <img loading="lazy" src="img/icons/sale-circle.svg" alt="">
+                                    <input autocomplete="off" type="text" name="form[]" placeholder="Введите промокод"
+                                        class="input">
+                                </div>
+                                <a href="./" class="btn btn-border-brown">
+                                    <span>Применить</span>
+                                </a>
+                            </form>
                             <a href="./" class="btn">
                                 <span>Далее</span>
                                 <svg aria-hidden="true" width="6" height="11">

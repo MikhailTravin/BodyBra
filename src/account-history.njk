@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <title>Личный кабинет - история заказов</title>
+    {% include 'blocks/head.njk' %}
+</head>
+
+<body class="preload mp">
+    <div class="main-wrapper-outer">
+        {% include 'blocks/header.njk' %}
+        <main class="main">
+
+            {% include 'blocks/header-search.njk' %}
+
+            <div class="block-account">
+                <div class="container">
+                    <div class="block-account__contents">
+                        <div class="breadcrumbs">
+                            <ul>
+                                <li>
+                                    <a href="#" class="home">
+                                        <img src="img/icons/home.svg" alt="">
+                                    </a>
+                                </li>
+                                <li><span>Личный кабинет</span></li>
+                            </ul>
+                        </div>
+                        <div class="block-account__content">
+                            <div class="account-menu">
+                                <ul>
+                                    <li>
+                                        <a href="./">
+                                            <img src="img/icons/user1.svg" alt="">
+                                            <span>Главная</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="./">
+                                            <img src="img/icons/sale-percent.svg" alt="">
+                                            <span>Моя скидка</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="./" class="active">
+                                            <img src="img/icons/history.svg" alt="">
+                                            <span>История заказов</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="./">
+                                            <img src="img/icons/heart.svg" alt="">
+                                            <span>Избранное</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="./">
+                                            <img src="img/icons/info.svg" alt="">
+                                            <span>Личные данные</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="./" class="logout">
+                                            <span>Выйти</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="block-account__body">
+                                <div class="block-account__top">
+                                    <h1 class="title1">
+                                        История заказов
+                                    </h1>
+                                    <a href="./" class="title2">завершенные покупки</a>
+                                </div>
+                                <div class="account-history">
+                                    <div class="account-history__content">
+                                        <div class="card-buy">
+                                            <div class="card-buy__top status-paid">
+                                                <div class="card-buy__name">
+                                                    Заказ № 12345 от 10 октября 2026
+                                                </div>
+                                                <div class="card-buy__status">
+                                                    В пути. Ожидается 14 октября
+                                                </div>
+                                            </div>
+                                            <div class="card-buy__body">
+                                                <div class="card-buy__images">
+                                                    <img src="img/products/image4.webp" alt="">
+                                                    <img src="img/products/image3.webp" alt="">
+                                                    <img src="img/products/image1.webp" alt="">
+                                                </div>
+                                                <div class="card-buy__delivery">
+                                                    <div class="card-buy__service-text">
+                                                        <span>Служба:</span> Доставка Ozon
+                                                    </div>
+                                                    <div class="card-buy__track-number">
+                                                        <p>
+                                                            <span>Трек-номер:</span>
+                                                            <span class="card-buy__copy-text">
+                                                                OZ-987654321
+                                                            </span>
+                                                        </p>
+                                                        <button type="button" class="card-buy__number-copy">
+                                                            <img loading="lazy" src="img/icons/copy.svg" alt="">
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                                <div class="card-buy__address">
+                                                    <p>
+                                                        <img src="img/icons/map.svg" alt="">
+                                                        ПВЗ: г. Москва, ул. Ленина, д. 45
+                                                    </p>
+                                                    <a href="./" class="card-buy__map">Показать на карте</a>
+                                                </div>
+                                            </div>
+                                            <div data-spollers class="card-buy-spollers">
+                                                <div class="card-buy-spollers__item">
+                                                    <button type="button" data-spoller
+                                                        class="card-buy-spollers__button">
+                                                        <span data-text="Раскрыть детали заказа"
+                                                            class="card-buy-spollers__title">
+                                                            Раскрыть детали заказа
+                                                        </span>
+                                                        <span class="card-buy-spollers__arrow">
+                                                            <svg aria-hidden="true" width="6" height="12">
+                                                                <use xlink:href="img/sprite.svg#arrow1"></use>
+                                                            </svg>
+                                                        </span>
+                                                    </button>
+                                                    <div class="card-buy-spollers__body">
+                                                        <div class="card-buy-spollers__content">
+                                                            <div class="card-buy-spollers__cards">
+                                                                <div class="card-cart">
+                                                                    <div class="card-cart__left">
+                                                                        <a href="./" class="card-cart__pic1">
+                                                                            <img loading="lazy"
+                                                                                src="img/products/image4.webp" alt="">
+                                                                        </a>
+                                                                        <div class="card-cart__item">
+                                                                            <a href="./" class="card-cart__name">
+                                                                                Бюстгальтер без косточек бесшовный
+                                                                                гладкий
+                                                                            </a>
+                                                                            <ul>
+                                                                                <li>
+                                                                                    <span>Цвет:</span> Пудровый
+                                                                                </li>
+                                                                                <li>
+                                                                                    <span>Размер:</span> 75 В
+                                                                                </li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="card-cart__right">
+                                                                        <div class="card-cart__prices">
+                                                                            <div class="card-cart__new-price">
+                                                                                2 490 ₽
+                                                                            </div>
+                                                                            <div class="card-cart__old-price">
+                                                                                4 500 ₽
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="card-cart">
+                                                                    <div class="card-cart__left">
+                                                                        <a href="./" class="card-cart__pic1">
+                                                                            <img loading="lazy"
+                                                                                src="img/products/image3.webp" alt="">
+                                                                        </a>
+                                                                        <div class="card-cart__item">
+                                                                            <a href="./" class="card-cart__name">
+                                                                                Бюстгальтер без косточек бесшовный
+                                                                                гладкий
+                                                                            </a>
+                                                                            <ul>
+                                                                                <li>
+                                                                                    <span>Цвет:</span> Пудровый
+                                                                                </li>
+                                                                                <li>
+                                                                                    <span>Размер:</span> 75 В
+                                                                                </li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="card-cart__right">
+                                                                        <div class="card-cart__prices">
+                                                                            <div class="card-cart__new-price">
+                                                                                6 490 ₽
+                                                                            </div>
+                                                                            <div class="card-cart__old-price">
+                                                                                6 500 ₽
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="card-buy-spollers__totals">
+                                                                <ul>
+                                                                    <li>
+                                                                        <div class="card-buy-spollers__name">
+                                                                            Товары на сумму:
+                                                                        </div>
+                                                                        <div class="card-buy-spollers__line"></div>
+                                                                        <div class="card-buy-spollers__value">
+                                                                            9 600 ₽
+                                                                        </div>
+                                                                    </li>
+                                                                    <li>
+                                                                        <div class="card-buy-spollers__name">
+                                                                            Скидка лояльности (10%):
+                                                                        </div>
+                                                                        <div class="card-buy-spollers__line"></div>
+                                                                        <div class="card-buy-spollers__value">
+                                                                            - 560 ₽
+                                                                        </div>
+                                                                    </li>
+                                                                    <li>
+                                                                        <div class="card-buy-spollers__name">
+                                                                            Доставка:
+                                                                        </div>
+                                                                        <div class="card-buy-spollers__line"></div>
+                                                                        <div class="card-buy-spollers__value">
+                                                                            250 ₽
+                                                                        </div>
+                                                                    </li>
+                                                                </ul>
+                                                                <ul>
+                                                                    <li>
+                                                                        <div class="card-buy-spollers__name">
+                                                                            Итого оплачено:
+                                                                        </div>
+                                                                        <div class="card-buy-spollers__line"></div>
+                                                                        <div class="card-buy-spollers__value">
+                                                                            2 490 ₽
+                                                                        </div>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                            <div class="card-buy-spollers__buttons">
+                                                                <a href="./" class="btn btn-border-brown">
+                                                                    <span>Электронный чек</span>
+                                                                </a>
+                                                                <a href="./" class="btn">
+                                                                    <span>Повторить заказ</span>
+                                                                </a>
+                                                                <a href="./" class="btn btn-beige">
+                                                                    <span>Нужна помощь</span>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card-buy">
+                                            <div class="card-buy__top status-paid">
+                                                <div class="card-buy__name">
+                                                    Заказ № 12345 от 10 октября 2026
+                                                </div>
+                                                <div class="card-buy__status">
+                                                    В пути. Ожидается 14 октября
+                                                </div>
+                                            </div>
+                                            <div class="card-buy__body">
+                                                <div class="card-buy__images">
+                                                    <img src="img/products/image4.webp" alt="">
+                                                    <img src="img/products/image3.webp" alt="">
+                                                    <img src="img/products/image1.webp" alt="">
+                                                </div>
+                                                <div class="card-buy__delivery">
+                                                    <div class="card-buy__service-text">
+                                                        <span>Служба:</span> Доставка Ozon
+                                                    </div>
+                                                    <div class="card-buy__track-number">
+                                                        <p>
+                                                            <span>Трек-номер:</span>
+                                                            <span class="card-buy__copy-text">
+                                                                OZ-987654321
+                                                            </span>
+                                                        </p>
+                                                        <button type="button" class="card-buy__number-copy">
+                                                            <img loading="lazy" src="img/icons/copy.svg" alt="">
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                                <div class="card-buy__address">
+                                                    <p>
+                                                        <img src="img/icons/map.svg" alt="">
+                                                        ПВЗ: г. Москва, ул. Ленина, д. 45
+                                                    </p>
+                                                    <a href="./" class="card-buy__map">Показать на карте</a>
+                                                </div>
+                                            </div>
+                                            <div data-spollers class="card-buy-spollers">
+                                                <div class="card-buy-spollers__item">
+                                                    <button type="button" data-spoller
+                                                        class="card-buy-spollers__button">
+                                                        <span data-text="Раскрыть детали заказа"
+                                                            class="card-buy-spollers__title">
+                                                            Раскрыть детали заказа
+                                                        </span>
+                                                        <span class="card-buy-spollers__arrow">
+                                                            <svg aria-hidden="true" width="6" height="12">
+                                                                <use xlink:href="img/sprite.svg#arrow1"></use>
+                                                            </svg>
+                                                        </span>
+                                                    </button>
+                                                    <div class="card-buy-spollers__body">
+                                                        <div class="card-buy-spollers__content">
+                                                            <div class="card-buy-spollers__cards">
+                                                                <div class="card-cart">
+                                                                    <div class="card-cart__left">
+                                                                        <a href="./" class="card-cart__pic1">
+                                                                            <img loading="lazy"
+                                                                                src="img/products/image4.webp" alt="">
+                                                                        </a>
+                                                                        <div class="card-cart__item">
+                                                                            <a href="./" class="card-cart__name">
+                                                                                Бюстгальтер без косточек бесшовный
+                                                                                гладкий
+                                                                            </a>
+                                                                            <ul>
+                                                                                <li>
+                                                                                    <span>Цвет:</span> Пудровый
+                                                                                </li>
+                                                                                <li>
+                                                                                    <span>Размер:</span> 75 В
+                                                                                </li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="card-cart__right">
+                                                                        <div class="card-cart__prices">
+                                                                            <div class="card-cart__new-price">
+                                                                                2 490 ₽
+                                                                            </div>
+                                                                            <div class="card-cart__old-price">
+                                                                                4 500 ₽
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="card-cart">
+                                                                    <div class="card-cart__left">
+                                                                        <a href="./" class="card-cart__pic1">
+                                                                            <img loading="lazy"
+                                                                                src="img/products/image3.webp" alt="">
+                                                                        </a>
+                                                                        <div class="card-cart__item">
+                                                                            <a href="./" class="card-cart__name">
+                                                                                Бюстгальтер без косточек бесшовный
+                                                                                гладкий
+                                                                            </a>
+                                                                            <ul>
+                                                                                <li>
+                                                                                    <span>Цвет:</span> Пудровый
+                                                                                </li>
+                                                                                <li>
+                                                                                    <span>Размер:</span> 75 В
+                                                                                </li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="card-cart__right">
+                                                                        <div class="card-cart__prices">
+                                                                            <div class="card-cart__new-price">
+                                                                                6 490 ₽
+                                                                            </div>
+                                                                            <div class="card-cart__old-price">
+                                                                                6 500 ₽
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="card-buy-spollers__totals">
+                                                                <ul>
+                                                                    <li>
+                                                                        <div class="card-buy-spollers__name">
+                                                                            Товары на сумму:
+                                                                        </div>
+                                                                        <div class="card-buy-spollers__line"></div>
+                                                                        <div class="card-buy-spollers__value">
+                                                                            9 600 ₽
+                                                                        </div>
+                                                                    </li>
+                                                                    <li>
+                                                                        <div class="card-buy-spollers__name">
+                                                                            Скидка лояльности (10%):
+                                                                        </div>
+                                                                        <div class="card-buy-spollers__line"></div>
+                                                                        <div class="card-buy-spollers__value">
+                                                                            - 560 ₽
+                                                                        </div>
+                                                                    </li>
+                                                                    <li>
+                                                                        <div class="card-buy-spollers__name">
+                                                                            Доставка:
+                                                                        </div>
+                                                                        <div class="card-buy-spollers__line"></div>
+                                                                        <div class="card-buy-spollers__value">
+                                                                            250 ₽
+                                                                        </div>
+                                                                    </li>
+                                                                </ul>
+                                                                <ul>
+                                                                    <li>
+                                                                        <div class="card-buy-spollers__name">
+                                                                            Итого оплачено:
+                                                                        </div>
+                                                                        <div class="card-buy-spollers__line"></div>
+                                                                        <div class="card-buy-spollers__value">
+                                                                            2 490 ₽
+                                                                        </div>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                            <div class="card-buy-spollers__buttons">
+                                                                <a href="./" class="btn btn-border-brown">
+                                                                    <span>Электронный чек</span>
+                                                                </a>
+                                                                <a href="./" class="btn">
+                                                                    <span>Повторить заказ</span>
+                                                                </a>
+                                                                <a href="./" class="btn btn-beige">
+                                                                    <span>Нужна помощь</span>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {% include 'blocks/pagging.njk' %}
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+        {% include 'blocks/footer.njk' %}
+    </div>
+    {% include 'blocks/popups.njk' %}
+    {% include 'blocks/scripts.njk' %}
+</body>
+
+</html>

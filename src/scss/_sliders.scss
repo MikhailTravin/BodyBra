@@ -43,27 +43,6 @@
     }
 }
 
-/*
-.pagination {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    .swiper-pagination-bullet {
-        width: 12px !important;
-        height: 12px;
-        flex: 0 0 12px;
-        margin: 0px 0px 0px 0px !important;
-        opacity: 1 !important;
-        border: 1px solid #dae5df;
-        border-radius: 50%;
-        background-color: var(--ffffff);
-    }
-    .swiper-pagination-bullet-active {
-        background-color: var(--02642b);
-    }
-}*/
-
 .swiper-pagination-lock {
     display: none;
 }

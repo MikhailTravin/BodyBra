@@ -11,6 +11,8 @@
         {% include 'blocks/header.njk' %}
         <main class="main">
 
+            {% include 'blocks/header-search.njk' %}
+
             <div class="block-main block-main-other">
                 <div class="container">
                     <div class="block-main__content">
@@ -93,6 +95,279 @@
                 </div>
             </div>
 
+            <div class="block-filter-size">
+                <div class="container">
+                    <div class="block-filter-size__content">
+                        <div class="filter-sorting">
+                            <button data-filter="filter1" type="button" class="filter-sorting__button active">
+                                <span data-text="Бюстгальтеры">Бюстгальтеры</span>
+                            </button>
+                            <button data-filter="filter2" type="button" class="filter-sorting__button">
+                                <span data-text="Трусы">Трусы</span>
+                            </button>
+                            <button data-filter="filter3" type="button" class="filter-sorting__button">
+                                <span data-text="Одежда для сна">Одежда для сна</span>
+                            </button>
+                        </div>
+                        <div data-filter="filter1" class="block-filter-size__body filter-card">
+                            <div class="block-filter-size__column">
+                                <div class="block-filter-size__top">
+                                    <div class="block-filter-size__titles">
+                                        <div class="block-filter-size__steps">
+                                            Шаг 1
+                                        </div>
+                                        <div class="block-filter-size__title">
+                                            Определяем объем
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="block-filter-size__cards">
+                                    <div class="block-filter-size__card">
+                                        <div class="block-filter-size__name">
+                                            Обхват под грудью (см):
+                                        </div>
+                                        <ul>
+                                            <li><span>68-72</span></li>
+                                            <li><span>73-77</span></li>
+                                            <li><span>78-82</span></li>
+                                            <li><span>83-87</span></li>
+                                        </ul>
+                                    </div>
+                                    <div class="block-filter-size__card">
+                                        <div class="block-filter-size__name">
+                                            Ваш объем:
+                                        </div>
+                                        <ul>
+                                            <li><span>70</span></li>
+                                            <li><span>75</span></li>
+                                            <li><span>80</span></li>
+                                            <li><span>85</span></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="block-filter-size__column">
+                                <div class="block-filter-size__top">
+                                    <div class="block-filter-size__titles">
+                                        <div class="block-filter-size__steps">
+                                            Шаг 2
+                                        </div>
+                                        <div class="block-filter-size__title">
+                                            Определяем полноту чашки
+                                        </div>
+                                    </div>
+                                    <p>
+                                        Вычтите показатель обхвата под грудью из обхвата груди.<br> Полученная разница —
+                                        это
+                                        размер вашей чашки
+                                    </p>
+                                </div>
+                                <div class="block-filter-size__cards">
+                                    <div class="block-filter-size__card">
+                                        <div class="block-filter-size__name">
+                                            Разница, см:
+                                        </div>
+                                        <ul>
+                                            <li><span>12-13</span></li>
+                                            <li><span>14-15</span></li>
+                                            <li><span>16-17</span></li>
+                                            <li><span>18-19</span></li>
+                                        </ul>
+                                    </div>
+                                    <div class="block-filter-size__card">
+                                        <div class="block-filter-size__name">
+                                            Размер чашки:
+                                        </div>
+                                        <ul>
+                                            <li><span>Чашка А</span></li>
+                                            <li><span>Чашка B</span></li>
+                                            <li><span>Чашка C</span></li>
+                                            <li><span>Чашка D</span></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="block-filter-size__column">
+                                <div class="block-filter-size__top">
+                                    <div class="block-filter-size__titles">
+                                        <div class="block-filter-size__steps">
+                                            Шаг 3
+                                        </div>
+                                        <div class="block-filter-size__title">
+                                            Сводная таблица
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="block-filter-size__cards">
+                                    <div class="block-filter-size__card">
+                                        <div class="block-filter-size__name">
+                                            A
+                                        </div>
+                                        <ul>
+                                            <li><span>70A</span></li>
+                                            <li><span>80A</span></li>
+                                            <li><span>85A</span></li>
+                                        </ul>
+                                    </div>
+                                    <div class="block-filter-size__card">
+                                        <div class="block-filter-size__name">
+                                            B
+                                        </div>
+                                        <ul>
+                                            <li><span>75B</span></li>
+                                            <li><span>80B</span></li>
+                                            <li><span>85B</span></li>
+                                        </ul>
+                                    </div>
+                                    <div class="block-filter-size__card">
+                                        <div class="block-filter-size__name">
+                                            C
+                                        </div>
+                                        <ul>
+                                            <li><span>70C</span></li>
+                                            <li><span>80C</span></li>
+                                            <li><span>85C</span></li>
+                                        </ul>
+                                    </div>
+                                    <div class="block-filter-size__card">
+                                        <div class="block-filter-size__name">
+                                            D
+                                        </div>
+                                        <ul>
+                                            <li><span>70D</span></li>
+                                            <li><span>80D</span></li>
+                                            <li><span>85D</span></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div data-filter="filter2" class="block-filter-size__body filter-card">
+                            <div class="block-filter-size__column">
+                                <div class="block-filter-size__top">
+                                    <div class="block-filter-size__titles">
+                                        <div class="block-filter-size__steps">
+                                            Шаг 1
+                                        </div>
+                                        <div class="block-filter-size__title">
+                                            Определяем объем
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="block-filter-size__cards">
+                                    <div class="block-filter-size__card">
+                                        <div class="block-filter-size__name">
+                                            Обхват под грудью (см):
+                                        </div>
+                                        <ul>
+                                            <li><span>68-72</span></li>
+                                            <li><span>73-77</span></li>
+                                            <li><span>78-82</span></li>
+                                            <li><span>83-87</span></li>
+                                        </ul>
+                                    </div>
+                                    <div class="block-filter-size__card">
+                                        <div class="block-filter-size__name">
+                                            Ваш объем:
+                                        </div>
+                                        <ul>
+                                            <li><span>70</span></li>
+                                            <li><span>75</span></li>
+                                            <li><span>80</span></li>
+                                            <li><span>85</span></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="block-filter-size__column">
+                                <div class="block-filter-size__top">
+                                    <div class="block-filter-size__titles">
+                                        <div class="block-filter-size__steps">
+                                            Шаг 2
+                                        </div>
+                                        <div class="block-filter-size__title">
+                                            Определяем полноту чашки
+                                        </div>
+                                    </div>
+                                    <p>
+                                        Вычтите показатель обхвата под грудью из обхвата груди.<br> Полученная разница —
+                                        это
+                                        размер вашей чашки
+                                    </p>
+                                </div>
+                                <div class="block-filter-size__cards">
+                                    <div class="block-filter-size__card">
+                                        <div class="block-filter-size__name">
+                                            Разница, см:
+                                        </div>
+                                        <ul>
+                                            <li><span>12-13</span></li>
+                                            <li><span>14-15</span></li>
+                                            <li><span>16-17</span></li>
+                                            <li><span>18-19</span></li>
+                                        </ul>
+                                    </div>
+                                    <div class="block-filter-size__card">
+                                        <div class="block-filter-size__name">
+                                            Размер чашки:
+                                        </div>
+                                        <ul>
+                                            <li><span>Чашка А</span></li>
+                                            <li><span>Чашка B</span></li>
+                                            <li><span>Чашка C</span></li>
+                                            <li><span>Чашка D</span></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div data-filter="filter3" class="block-filter-size__body filter-card">
+                            <div class="block-filter-size__column">
+                                <div class="block-filter-size__top">
+                                    <div class="block-filter-size__titles">
+                                        <div class="block-filter-size__steps">
+                                            Шаг 1
+                                        </div>
+                                        <div class="block-filter-size__title">
+                                            Определяем полноту чашки
+                                        </div>
+                                    </div>
+                                    <p>
+                                        Вычтите показатель обхвата под грудью из обхвата груди.<br> Полученная разница —
+                                        это
+                                        размер вашей чашки
+                                    </p>
+                                </div>
+                                <div class="block-filter-size__cards">
+                                    <div class="block-filter-size__card">
+                                        <div class="block-filter-size__name">
+                                            Разница, см:
+                                        </div>
+                                        <ul>
+                                            <li><span>12-13</span></li>
+                                            <li><span>14-15</span></li>
+                                            <li><span>16-17</span></li>
+                                            <li><span>18-19</span></li>
+                                        </ul>
+                                    </div>
+                                    <div class="block-filter-size__card">
+                                        <div class="block-filter-size__name">
+                                            Размер чашки:
+                                        </div>
+                                        <ul>
+                                            <li><span>Чашка А</span></li>
+                                            <li><span>Чашка B</span></li>
+                                            <li><span>Чашка C</span></li>
+                                            <li><span>Чашка D</span></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="block-help">
                 <div class="container">
                     <div class="block-help__content">
@@ -116,7 +391,6 @@
                     </div>
                 </div>
             </div>
-            
 
         </main>
         {% include 'blocks/footer.njk' %}

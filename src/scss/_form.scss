@@ -455,3 +455,92 @@
         }
     }
 }
+
+.quantity {
+    display: flex;
+    justify-content: center;
+    flex: 0 0 150px;
+    width: 150px;
+    height: 36px;
+    align-items: center;
+    @media (max-width: 550px) {
+        flex: 0 0 105px;
+        width: 105px;
+        height: 30px;
+    }
+    // .quantity__button
+    &__button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 36px;
+        height: 100%;
+        flex: 0 0 36px;
+        cursor: pointer;
+        background: var(--f8f1ed);
+        transition: opacity 0.3s;
+        @media (max-width: 550px) {
+            width: 30px;
+            flex: 0 0 30px;
+        }
+        &:hover {
+            opacity: 0.7;
+        }
+        span {
+            position: relative;
+            width: 12px;
+            height: 12px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            &::before {
+                content: "";
+                display: block;
+                width: 12px;
+                height: 2px;
+                background-color: var(--c2a18c);
+                @media (max-width: 550px) {
+                    height: 1px;
+                }
+            }
+            &::after {
+                content: "";
+                transition: opacity 0.3s;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                height: 12px;
+                width: 2px;
+                background-color: var(--c2a18c);
+                @media (max-width: 550px) {
+                    width: 1px;
+                }
+            }
+        }
+        &.quantity__button_minus {
+            span {
+                &::after {
+                    content: "";
+                    display: none;
+                }
+            }
+        }
+    }
+    // .quantity__input
+    &__input {
+        flex: 1 1 auto;
+        input {
+            width: 100%;
+            height: 100%;
+            font-family: var(--second-family);
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 125%;
+            text-align: center;
+            @media (max-width: 550px) {
+                font-size: 14px;
+            }
+        }
+    }
+}

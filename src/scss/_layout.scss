@@ -40,6 +40,14 @@
       z-index: 105;
     }
   }
+  .search-open & {
+    &::before {
+      content: "";
+      opacity: 1;
+      pointer-events: auto;
+      z-index: 105;
+    }
+  }
 }
 
 .main {
