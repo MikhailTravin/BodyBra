@@ -1659,133 +1659,17 @@ if (buttonCopy) {
 //========================================================================================================================================================
 
 //Яндекс карта
-const map1 = document.querySelector('#map1');
-
-if (map1) {
-  ymaps.ready(init);
-
-  function init() {
-    var myMap = new ymaps.Map('map1', {
-      center: [43.181311, 76.810044],
-      zoom: 15,
-      controls: ['zoomControl'],
-      behaviors: ['drag']
-    }, {
-      searchControlProvider: 'yandex#search'
-    });
-
-    function createOzonPlacemark(coords, data) {
-      const inner = data.img
-        ? `<img src="${data.img}" class="ozon-img" alt="icon">`
-        : `<div class="ozon-text">${data.text}</div>`;
-
-      const placemark = new ymaps.Placemark(coords, {
-        hintContent: data.text,
-        balloonData: {
-          title: data.title,
-          address: data.address,
-          term: data.term,
-          price: data.price
-        }
-      }, {
-        iconLayout: 'default#imageWithContent',
-        iconImageSize: [70, 70],
-        iconImageOffset: [-35, -35],
-        hideIconOnBalloonOpen: false,
-        iconImageHref: '',
-        iconContentLayout: ymaps.templateLayoutFactory.createClass(
-          `<div class="ozon-placemark">${inner}</div>`
-        ),
-        balloonContentLayout: ymaps.templateLayoutFactory.createClass(`
-          <div class="map__content">
-            <div class="map__body">
-              <div class="map__titles">
-                <div class="map__title">{{ properties.balloonData.title }}</div>
-                <p>{{ properties.balloonData.address }}</p>
-              </div>
-              <div class="map__bottom">
-                <div class="map__text">
-                  <span>Срок:</span> {{ properties.balloonData.term }}
-                </div>
-                <div class="map__text">
-                  <span>Стоимость:</span> {{ properties.balloonData.price }}
-                </div>
-              </div>
-            </div>
-            <a href="./" class="btn">
-              <span>Выбрать этот пункт</span>
-              <svg aria-hidden="true" width="6" height="11">
-                <use xlink:href="img/sprite.svg#arrow1"></use>
-              </svg>
-            </a>
-          </div>
-        `)
-      });
-
-      placemark.events.add(['balloonopen', 'balloonclose'], function (e) {
-        const target = e.get('target');
-        const type = e.get('type');
-        const overlay = target.getOverlaySync && target.getOverlaySync();
-        if (!overlay) return;
-        const element = overlay.getElement && overlay.getElement();
-        if (!element) return;
-
-        const placesPane = document.querySelector('.ymaps-2-1-79-places-pane');
-        const balloonPane = document.querySelector('.ymaps-2-1-79-balloon-pane');
-
-        if (type === 'balloonopen') {
-          // Снимаем активность со всех плейсмарков и опускаем их z-index
-          document
-            .querySelectorAll('.ymaps-2-1-79-placemark-overlay')
-            .forEach(el => {
-              el.classList.remove('is-active');
-              el.style.zIndex = '650';
-            });
-
-          // Текущий плейсмарк — активный и самый высокий внутри своего pane
-          element.classList.add('is-active');
-          element.style.zIndex = '900';
-
-          // Поднимаем весь слой плейсмарков выше слоя балунов
-          if (placesPane) {
-            placesPane.dataset.prevZIndex = placesPane.style.zIndex || '';
-            placesPane.style.zIndex = '5000';
-          }
-          if (balloonPane) {
-            balloonPane.dataset.prevZIndex = balloonPane.style.zIndex || '';
-            balloonPane.style.zIndex = '4205';
-          }
-        } else {
-          element.classList.remove('is-active');
-          element.style.zIndex = '';
-
-          // Возвращаем исходные z-index слоям
-          if (placesPane) {
-            if (placesPane.dataset.prevZIndex !== undefined) {
-              placesPane.style.zIndex = placesPane.dataset.prevZIndex;
-              delete placesPane.dataset.prevZIndex;
-            } else {
-              placesPane.style.zIndex = '';
-            }
-          }
-          if (balloonPane) {
-            if (balloonPane.dataset.prevZIndex !== undefined) {
-              balloonPane.style.zIndex = balloonPane.dataset.prevZIndex;
-              delete balloonPane.dataset.prevZIndex;
-            } else {
-              balloonPane.style.zIndex = '';
-            }
-          }
-        }
-      });
-
-      return placemark;
-    }
-
-    const places = [
+const MAPS_CONFIG = {
+  map1: {
+    center: [43.181311, 76.810044],
+    zoom: 15,
+    controls: ['zoomControl'],
+    behaviors: ['drag'],
+    places: [
       {
         coords: [43.181311, 76.810044],
-        text: 'OZON', img: 'img/ozon1.webp',
+        text: 'OZON',
+        img: 'img/ozon1.webp',
         title: 'ПВЗ Ozon',
         address: 'ул. Ленина, 45',
         term: '2 дня',
@@ -1793,51 +1677,169 @@ if (map1) {
       },
       {
         coords: [43.182500, 76.812000],
-        text: 'OZON', img: 'img/ozon1.webp',
+        text: 'OZON',
+        img: 'img/ozon1.webp',
         title: 'ПВЗ Ozon',
         address: 'ул. Абая, 12',
         term: '1 день',
         price: '199 ₽'
-      },
+      }
+    ]
+  },
+
+  map2: {
+    center: [43.190000, 76.820000],
+    zoom: 14,
+    controls: ['zoomControl', 'fullscreenControl'],
+    behaviors: ['drag', 'scrollZoom'],
+    places: [
       {
-        coords: [43.180000, 76.808000],
-        text: 'OZON', img: 'img/ozon1.webp',
-        title: 'ПВЗ Ozon',
+        coords: [43.190000, 76.820000],
+        text: 'OZON',
+        img: 'img/ozon1.webp',
+        title: 'ПВЗ Ozon №2',
         address: 'пр. Достык, 100',
         term: '3 дня',
         price: '300 ₽'
-      },
+      }
+    ]
+  },
+
+  map3: {
+    center: [43.175000, 76.800000],
+    zoom: 16,
+    controls: ['zoomControl'],
+    behaviors: ['drag'],
+    places: [
       {
-        coords: [43.183000, 76.809000],
-        text: 'OZON', img: 'img/ozon1.webp',
-        title: 'ПВЗ Ozon',
+        coords: [43.175000, 76.800000],
+        text: 'OZON',
+        img: 'img/ozon1.webp',
+        title: 'ПВЗ Ozon №3',
         address: 'ул. Сатпаева, 8',
         term: '2 дня',
         price: '250 ₽'
+      },
+      {
+        coords: [43.176500, 76.802500],
+        text: 'OZON',
+        img: 'img/ozon1.webp',
+        title: 'ПВЗ Ozon №3a',
+        address: 'ул. Сатпаева, 10',
+        term: '2 дня',
+        price: '260 ₽'
       }
-    ];
-
-    places.forEach(place => {
-      myMap.geoObjects.add(createOzonPlacemark(place.coords, place));
-    });
-
-    myMap.events.add('click', function () {
-      myMap.balloon.close();
-    });
-
-    myMap.balloon.events.add('open', function () {
-      const balloonEl = document.querySelector('.ymaps-2-1-79-balloon');
-      if (!balloonEl) return;
-      if (balloonEl.dataset.btnBound === '1') return;
-      balloonEl.dataset.btnBound = '1';
-
-      balloonEl.addEventListener('click', function (e) {
-        const btn = e.target.closest('.btn');
-        if (!btn) return;
-        e.preventDefault();
-        myMap.balloon.close();
-      });
-    });
+    ]
   }
+};
+
+ymaps.ready(() => {
+  Object.entries(MAPS_CONFIG).forEach(([mapId, config]) => {
+    const el = document.getElementById(mapId);
+    if (!el) return;
+    initMap(mapId, config);
+  });
+});
+
+function initMap(mapId, config) {
+  const myMap = new ymaps.Map(mapId, {
+    center: config.center,
+    zoom: config.zoom,
+    controls: config.controls || ['zoomControl'],
+    behaviors: config.behaviors || ['drag']
+  }, {
+    searchControlProvider: config.searchProvider || 'yandex#search'
+  });
+
+  myMap.events.add('click', () => {
+    myMap.balloon.close();
+  });
+
+  (config.places || []).forEach(place => {
+    myMap.geoObjects.add(createOzonPlacemark(place.coords, place));
+  });
+
+  return myMap;
+}
+
+//Создание метки Ozon
+function createOzonPlacemark(coords, data) {
+  const inner = data.img
+    ? `<img src="${data.img}" class="ozon-img" alt="icon">`
+    : `<div class="ozon-text">${data.text}</div>`;
+
+  const placemark = new ymaps.Placemark(coords, {
+    hintContent: data.text,
+    balloonData: {
+      title: data.title,
+      address: data.address,
+      term: data.term,
+      price: data.price,
+      img: data.img
+    }
+  }, {
+    iconLayout: 'default#imageWithContent',
+    iconImageHref: 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==',
+    iconImageSize: [70, 70],
+    iconImageOffset: [-35, -35],
+    iconContentOffset: [0, 0],
+    iconContentSize: [70, 70],
+    hideIconOnBalloonOpen: false,
+    iconContentLayout: ymaps.templateLayoutFactory.createClass(
+      `<div class="ozon-placemark">${inner}</div>`
+    ),
+    balloonContentLayout: ymaps.templateLayoutFactory.createClass(`
+      <div class="map__content">
+        <div class="map__body">
+          <div class="ozon-placemark">
+            <img src="{{ properties.balloonData.img }}" class="ozon-img" alt="icon">
+          </div>
+          <div class="map__top">
+            <div class="map__titles">
+              <div class="map__title">{{ properties.balloonData.title }}</div>
+              <p>{{ properties.balloonData.address }}</p>
+            </div>
+            <div class="map__bottom">
+              <div class="map__text">
+                <span>Срок:</span> {{ properties.balloonData.term }}
+              </div>
+              <div class="map__text">
+                <span>Стоимость:</span> {{ properties.balloonData.price }}
+              </div>
+            </div>
+          </div>
+        </div>
+        <a href="./" class="btn">
+          <span>Выбрать этот пункт</span>
+          <svg aria-hidden="true" width="6" height="11">
+            <use xlink:href="img/sprite.svg#arrow1"></use>
+          </svg>
+        </a>
+      </div>
+    `)
+  });
+
+  function getIconEl() {
+    const layout = placemark.getIconContentLayout && placemark.getIconContentLayout();
+    if (!layout) return null;
+    const root = layout.getElement();
+    if (!root) return null;
+    return root.querySelector('.ozon-placemark');
+  }
+
+  function setActive(state) {
+    const el = getIconEl();
+    if (el) el.classList.toggle('active', state);
+  }
+
+  placemark.events.add('balloonopen', () => {
+    setTimeout(() => setActive(true), 0);
+  });
+
+  placemark.events.add('balloonclose', () => {
+    setActive(false);
+  });
+
+  return placemark;
 }
 
