@@ -1123,8 +1123,19 @@
             gap: 20px 10px;
         }
         .card-product__image {
-            height: auto;
-            aspect-ratio: 3.25 / 4;
+            //height: auto;
+            //aspect-ratio: 3.25 / 4;
+            padding-top: 123.07%;
+            height: 0;
+            overflow: hidden;
+        }
+        .card-product__pic1 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
     }
 }
