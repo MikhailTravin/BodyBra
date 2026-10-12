@@ -10351,7 +10351,6 @@ a {
 }
 .account-favorites__cards .card-product__image {
   height: auto;
-  aspect-ratio: 3.25/4;
 }
 .account-favorites__buttons {
   margin-top: 19px;
